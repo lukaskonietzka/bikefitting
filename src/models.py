@@ -5,11 +5,11 @@ from django.db import models
 
 class Fitting(models.Model):
     ID = models.IntegerField
-    name = models.CharField(max_length=30)
+    name = models.CharField(max_length=40)
     height = models.IntegerField
     step_length = models.IntegerField
-    saddle_height = models.FloatField
-    frame_height = models.FloatField
+    saddle_height = models.IntegerField
+    frame_height = models.IntegerField
 
     def get_frame_height(self):
         return self.frame_height
@@ -30,10 +30,12 @@ class Roadbike(Fitting):
         self.calculate_saddle_height()
 
     def calculate_frame_height(self):
-        self.frame_height = self.step_length * self._STEP_LENGTH_FACTOR
+        height = self.step_length * self._STEP_LENGTH_FACTOR
+        self.frame_height = int(round(height, 0))
 
     def calculate_saddle_height(self):
-        self.saddle_height = self.step_length * self._SADDLE_HEIGHT_FACTOR
+        saddle_height = self.step_length * self._SADDLE_HEIGHT_FACTOR
+        self.saddle_height = int(round(saddle_height, 0))
 
 
 class Trekkingbike(Fitting):
@@ -48,10 +50,12 @@ class Trekkingbike(Fitting):
         self.calculate_saddle_height()
 
     def calculate_frame_height(self):
-        self.frame_height = self.step_length * self._STEP_LENGTH_FACTOR
+        frame_height = self.step_length * self._STEP_LENGTH_FACTOR
+        self.frame_height = int(round(frame_height, 0))
 
     def calculate_saddle_height(self):
-        self.saddle_height = self.step_length * self._SADDLE_HEIGHT_FACTOR
+        saddle_height = self.step_length * self._SADDLE_HEIGHT_FACTOR
+        self.saddle_height = int(round(saddle_height, 0))
 
 
 class Mountainbike(Fitting):
@@ -66,7 +70,9 @@ class Mountainbike(Fitting):
         self.calculate_saddle_height()
 
     def calculate_frame_height(self):
-        self.frame_height = self.step_length * self._STEP_LENGTH_FACTOR
+        frame_height = self.step_length * self._STEP_LENGTH_FACTOR
+        self.frame_height = int(round(frame_height, 0))
 
     def calculate_saddle_height(self):
-        self.saddle_height = self.step_length * self._SADDLE_HEIGHT_FACTOR
+        saddle_height = self.step_length * self._SADDLE_HEIGHT_FACTOR
+        self.saddle_height = int(round(saddle_height, 0))

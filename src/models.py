@@ -81,18 +81,30 @@ class Fitting(models.Model):
         self.frame_height = data[3]
         self.saddle_height = data[4]
 
+    def __str__(self):
+        """
+        Method from objekt, ist called when an object
+        of Fitting should be printed via print()
+        :return: fields of Fitting that should be printed
+        """
+        return f"name: + {self.name} + \n +\
+                height: + {self.height} + \n +\
+                step length: + {self.step_length} + \n +\
+                frame height: + {self.frame_height} + \n +\
+                saddle height: + {self.saddle_height}"
+
 
 class Roadbike(Fitting):
     """
         Creat a Roadbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
-    _STEP_LENGTH_FACTOR = 0.665
+    _STEP_LENGTH_FACTOR = 1
     _SADDLE_HEIGHT_FACTOR = 1
 
-    def __int__(self, name, height, step_length):
+    def creat_roadbike_fitting(self, name, height, step_length):
         """
-        Constructor, get and calculate all required datas and write them into
+        Get and calculate all required datas and write them into
         the databas
         :param name:        user_name
         :param height:      user_height
@@ -107,8 +119,8 @@ class Roadbike(Fitting):
         data = (self.r_name,
                 self.r_height,
                 self.r_step_length,
-                self.frame_height,
-                self.saddle_height)
+                self.r_frame_height,
+                self.r_saddle_height)
         self.write_in_database(data)
 
 
@@ -120,9 +132,9 @@ class Trekkingbike(Fitting):
     _STEP_LENGTH_FACTOR = 1
     _SADDLE_HEIGHT_FACTOR = 1
 
-    def __int__(self, name, height, step_length):
+    def creat_trekkingbike_fitting(self, name, height, step_length):
         """
-        Constructor, get and calculate all required datas and write them into
+        Get and calculate all required datas and write them into
         the databas
         :param name:        user_name
         :param height:      user_height
@@ -147,12 +159,12 @@ class Mountainbike(Fitting):
         Creat a Mountainbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
-    _SADDLE_HEIGHT_FACTOR = 0.885
+    _SADDLE_HEIGHT_FACTOR = 1
     _STEP_LENGTH_FACTOR = 1
 
-    def __int__(self, name, height, step_length):
+    def creat_mountainbike_fitting(self, name, height, step_length):
         """
-        Constructor, get and calculate all required datas and write them into
+        Get and calculate all required datas and write them into
         the databas
         :param name:        user_name
         :param height:      user_height

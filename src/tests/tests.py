@@ -1,7 +1,5 @@
 """ Tests for all modules """
-import pytest
 from src.models import Roadbike, Mountainbike, Trekkingbike
-from django.conf import settings
 
 
 class Test_Roadbike():

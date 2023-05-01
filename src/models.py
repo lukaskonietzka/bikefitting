@@ -1,9 +1,21 @@
-""" Contains the Datastructur """
+"""
+    Contains the Database
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+"""
 
 from django.db import models
 
 
 class Fitting(models.Model):
+    """
+        Contains the Database from this app
+        The fields are the cols in the database
+        Child-class from:   Model
+        Parent-class for:   Terkkingbike,
+                            Roadbike,
+                            Mountainbike
+    """
     ID = models.IntegerField
     name = models.CharField(max_length=40)
     height = models.IntegerField
@@ -12,25 +24,57 @@ class Fitting(models.Model):
     frame_height = models.IntegerField
 
     def get_frame_height(self):
+        """
+        Geter method for the field frame_height
+        :return: the field frame_height
+        """
         return self.frame_height
 
     def get_saddle_height(self):
+        """
+        Geter-method for the field saddle_height
+        :return:    the field saddle_height
+        """
         return self.saddle_height
 
     @staticmethod
     def round_to_integer(x):
+        """
+        round the given argument to an integer
+        :param x:   number that must be round
+        :return:    rounded number
+        """
         roundabout = 0
         return int(round(x, roundabout))
 
     def calculate_frame_height(self, step_length, factor):
+        """
+        Calculate the frame height depending on the given argument
+        and a given factor
+        :param step_length: the step length of the user
+        :param factor:      factor depending on the bike
+        :return:            the calculated frame height depending on the bike
+        """
         frame_height = step_length * factor
         return self.round_to_integer(frame_height)
 
-    def calculate_saddle_height(self, saddle_height, factor):
-        saddle_height = saddle_height * factor
-        return self.round_to_integer(saddle_height)
+    def calculate_saddle_height(self, step_length, factor):
+        """
+        Calculate the saddle height depending on the given argument
+        and a given factor
+        :param step_length: the step length of the user
+        :param factor:      factor depending on the bike
+        :return:            the calculated saddle height depending on the bike
+        """
+        step_length = step_length * factor
+        return self.round_to_integer(step_length)
 
     def write_in_database(self, data):
+        """
+        Write the current datas into the data-model
+        :param data:    Tupel made out of 5, current datas
+        :return:        None
+        """
         self.name = data[0]
         self.height = data[1]
         self.step_length = data[2]
@@ -39,10 +83,22 @@ class Fitting(models.Model):
 
 
 class Roadbike(Fitting):
+    """
+        Creat a Roadbike-Fitting depending on the following fields
+        Child-class from:   Fitting
+    """
     _STEP_LENGTH_FACTOR = 0.665
     _SADDLE_HEIGHT_FACTOR = 1
 
     def __int__(self, name, height, step_length):
+        """
+        Constructor, get and calculate all required datas and write them into
+        the databas
+        :param name:        user_name
+        :param height:      user_height
+        :param step_length: user_step_length
+        :return:            None
+        """
         self.r_name = name
         self.r_height = height
         self.r_step_length = step_length
@@ -57,10 +113,22 @@ class Roadbike(Fitting):
 
 
 class Trekkingbike(Fitting):
+    """
+        Creat a Trekkingbike-Fitting depending on the following fields
+        Child-class from:   Fitting
+    """
     _STEP_LENGTH_FACTOR = 1
     _SADDLE_HEIGHT_FACTOR = 1
 
     def __int__(self, name, height, step_length):
+        """
+        Constructor, get and calculate all required datas and write them into
+        the databas
+        :param name:        user_name
+        :param height:      user_height
+        :param step_length: user_step_length
+        :return:            None
+        """
         self.t_name = name
         self.t_height = height
         self.t_step_length = step_length
@@ -75,10 +143,22 @@ class Trekkingbike(Fitting):
 
 
 class Mountainbike(Fitting):
+    """
+        Creat a Mountainbike-Fitting depending on the following fields
+        Child-class from:   Fitting
+    """
     _SADDLE_HEIGHT_FACTOR = 0.885
     _STEP_LENGTH_FACTOR = 1
 
     def __int__(self, name, height, step_length):
+        """
+        Constructor, get and calculate all required datas and write them into
+        the databas
+        :param name:        user_name
+        :param height:      user_height
+        :param step_length: user_step_length
+        :return:            None
+        """
         self.m_name = name
         self.m_height = height
         self.m_step_length = step_length

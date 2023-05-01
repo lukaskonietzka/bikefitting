@@ -1,4 +1,9 @@
-""" Tests for all modules """
+"""
+    Tests for all modules
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+"""
+
 from src.models import Roadbike, Mountainbike, Trekkingbike
 
 

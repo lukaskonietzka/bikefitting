@@ -1,9 +1,9 @@
 """
+    BACKEND
     Contains the Database
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 """
-
 from django.db import models
 
 

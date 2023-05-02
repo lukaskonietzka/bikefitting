@@ -1,10 +1,9 @@
 """
-    Tests for all modules
+    Tests for the database
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 """
-
-from src.models import Roadbike, Mountainbike, Trekkingbike
+from bikefitting_app.models import Roadbike, Mountainbike, Trekkingbike
 
 
 class Test_Roadbike():
@@ -43,8 +42,6 @@ class Test_Roadbike():
         result_saddle_height = self.r_bike.saddle_height
         expect_saddle_height = 90
         assert result_saddle_height == expect_saddle_height
-
-
 
 
 class Test_Mountainbike():

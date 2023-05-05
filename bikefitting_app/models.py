@@ -1,6 +1,14 @@
 """
     BACKEND
-    Contains the Database
+    Contains the Database for all Fittings
+
+    Example:
+        - To creat a new fitting type:
+            r_bike = Roadbike()
+            r_bike.creat_roadbike_fitting()
+        - To get the created date in python use:
+            print(r_bike) or use the database language from django
+
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 """
@@ -17,11 +25,11 @@ class Fitting(models.Model):
                             Mountainbike
     """
     ID = models.IntegerField
-    name = models.CharField(max_length=40)
-    height = models.IntegerField
-    step_length = models.IntegerField
-    saddle_height = models.IntegerField
-    frame_height = models.IntegerField
+    name = models.CharField(max_length=40, name='Name', null=False)
+    height = models.IntegerField(name='Height', null=False)
+    step_length = models.IntegerField(name='Step Length', null=False)
+    saddle_height = models.IntegerField(name='Saddle Height', null=False)
+    frame_height = models.IntegerField(name='Frame Height', null=False)
 
     def get_frame_height(self):
         """

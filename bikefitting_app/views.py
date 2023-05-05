@@ -20,18 +20,11 @@ class FittingForm(forms.ModelForm):
         exclude = []
 
 
+def index(request):
+    fittings = FittingForm()
+    return render(request, 'index.html')
+
+
 def upload(request):
-    """
-    Vorlage des Dozenten
-    :param request:
-    :return:
-    """
-    # werden Formulardaten geschickt?
-    if request.method == "POST":
-        form = FittingForm(request.POST, request.FILES)
-        if form.is_valid():  # Formular überprüfen
-            new_Fitting = form.save()
-            return HttpResponseRedirect('/gallery/')  # Umleitung
-    else:
-        form = FittingForm()  # leeres Formular
+    form = FittingForm()  # leeres Formular
     return render(request, 'upload.html', dict(upload_form=form))

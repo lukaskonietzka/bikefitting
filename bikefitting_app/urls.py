@@ -1,6 +1,17 @@
-""" contains all paths to diffrent sites """
+"""
+    contains all paths to different sites
+"""
 
 from django.contrib import admin
-from django.urls import include, path
-from django.conf.urls.static import static
-from django.conf import settings
+from django.urls import path
+
+from bikefitting_app.views import index, upload
+
+urlpatterns = [
+    path('', index, name='index'),              # main-page
+    path('admin/', admin.site.urls),            # admin-page
+    path('upload/', upload, name='upload'),     # upload-page
+]
+
+
+

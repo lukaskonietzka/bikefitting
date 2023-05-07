@@ -3,7 +3,7 @@
     Contains the Database for all Fittings
 
     Example:
-        - To creat a new fitting type:
+        - To create a new fitting type:
             r_bike = Roadbike()
             r_bike.creat_roadbike_fitting()
         - To get the created date in python use:
@@ -18,7 +18,7 @@ from django.db import models
 class Fitting(models.Model):
     """
         Contains the Database from this app
-        The fields are the cols in the database
+        The fields are the columns in the database
         Child-class from:   Model
         Parent-class for:   Terkkingbike,
                             Roadbike,
@@ -91,7 +91,7 @@ class Fitting(models.Model):
 
     def __str__(self):
         """
-        Method from objekt, ist called when an object
+        Method from objekt, is called when an object
         of Fitting should be printed via print()
         :return: fields of Fitting that should be printed
         """
@@ -104,16 +104,16 @@ class Fitting(models.Model):
 
 class Roadbike(Fitting):
     """
-        Creat a Roadbike-Fitting depending on the following fields
+        Create a Roadbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
     _STEP_LENGTH_FACTOR = 1
     _SADDLE_HEIGHT_FACTOR = 1
 
-    def creat_roadbike_fitting(self, name, height, step_length):
+    def create_roadbike_fitting(self, name, height, step_length):
         """
         Get and calculate all required datas and write them into
-        the databas
+        the database
         :param name:        user_name
         :param height:      user_height
         :param step_length: user_step_length
@@ -134,16 +134,16 @@ class Roadbike(Fitting):
 
 class Trekkingbike(Fitting):
     """
-        Creat a Trekkingbike-Fitting depending on the following fields
+        Create a Trekkingbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
     _STEP_LENGTH_FACTOR = 1
     _SADDLE_HEIGHT_FACTOR = 1
 
-    def creat_trekkingbike_fitting(self, name, height, step_length):
+    def create_trekkingbike_fitting(self, name, height, step_length):
         """
         Get and calculate all required datas and write them into
-        the databas
+        the database
         :param name:        user_name
         :param height:      user_height
         :param step_length: user_step_length
@@ -164,16 +164,16 @@ class Trekkingbike(Fitting):
 
 class Mountainbike(Fitting):
     """
-        Creat a Mountainbike-Fitting depending on the following fields
+        Create a Mountainbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
     _SADDLE_HEIGHT_FACTOR = 1
     _STEP_LENGTH_FACTOR = 1
 
-    def creat_mountainbike_fitting(self, name, height, step_length):
+    def create_mountainbike_fitting(self, name, height, step_length):
         """
         Get and calculate all required datas and write them into
-        the databas
+        the database
         :param name:        user_name
         :param height:      user_height
         :param step_length: user_step_length

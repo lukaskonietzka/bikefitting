@@ -20,8 +20,8 @@ class Test_Roadbike():
         expect = 270
         assert result == expect
 
-    def test_creat_roadbike_fitting(self):
-        self.r_bike.creat_roadbike_fitting("Cube", 180, 90)
+    def test_create_roadbike_fitting(self):
+        self.r_bike.create_roadbike_fitting("Cube", 180, 90)
 
         result_name = self.r_bike.name
         expect_name = "Cube"
@@ -58,8 +58,8 @@ class Test_Mountainbike():
         expect = 270
         assert result == expect
 
-    def test_creat_mountainbike_fitting(self):
-        self.m_bike.creat_mountainbike_fitting("Cube", 180, 90)
+    def test_create_mountainbike_fitting(self):
+        self.m_bike.create_mountainbike_fitting("Cube", 180, 90)
 
         result_name = self.m_bike.name
         expect_name = "Cube"
@@ -96,8 +96,8 @@ class Test_Trekkingbike():
         expect = 270
         assert result == expect
 
-    def test_creat_trekkingbike_fitting(self):
-        self.t_bike.creat_trekkingbike_fitting("Cube", 180, 90)
+    def test_create_trekkingbike_fitting(self):
+        self.t_bike.create_trekkingbike_fitting("Cube", 180, 90)
 
         result_name = self.t_bike.name
         expect_name = "Cube"

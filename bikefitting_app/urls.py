@@ -1,5 +1,8 @@
 """
-    contains all paths to different sites
+    URLS
+    Contains all paths to different sites from the app bikfitting_app
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
 """
 
 from django.contrib import admin

@@ -1,9 +1,13 @@
-{# Conten of the site "Upload" #}
+{# Conten of the site "measureStepLenght" #}
 
 {% extends 'base.html' %}
 
+{% block titel %} Bikefitting-Messen {% endblock %}
+
+{% block pageHeader %} Schrittlänge Messen {% endblock %}
+
 {% block content %}
-    <h1> Hello From Upload </h1>
+    <h1> Hello From Measure </h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

@@ -3,7 +3,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>{% block head %}Bike-Fitting{% endblock %}</title>
+        <title>{% block titel %}Bike-Fitting{% endblock %}</title>
         <style>
             nav {
               background-color: #333;
@@ -27,20 +27,42 @@
             nav a:hover {
               background-color: #555;
             }
+
+            h2 {
+                text-align: center;
+            }
+
+            table {
+	            border-collapse: collapse;
+	            width: 50%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            th, td {
+                padding: 8px;
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+                background-color: lightgray;
+            }
+
+            th {
+                background-color: gray;
+            }
         </style>
     </head>
 
-    <body>
+    <body style="background-color: lightgray">
         <nav>
             <ul>
                 <li> <a href="/">Start</a> </li>
-                <li> <a href="/upload">Upload</a> </li>
+                <li> <a href="/measureStepLenght">Messen</a> </li>
                 <li> <a href="/admin">Admin</a> </li>
             </ul>
         </nav>
-        <h3> Create your Bike-Fitting </h3>
+        <h2><b>{% block pageHeader %} {% endblock %}</b></h2>
+        <hr>
         {% block content %}
-
 
         {% endblock %}
     </body>

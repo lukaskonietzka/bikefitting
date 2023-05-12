@@ -2,9 +2,30 @@
 
 {% extends 'base.html' %}
 
+{% block titel %} Bikefitting-Start {% endblock %}
+
+{% block pageHeader %} Start {% endblock %}
+
 {% block content %}
-    <h1> Hello From Start </h1>
-    <div>
-        Hier könnte stehen, wie man seine Schrittlänge misst!
-    </div>
+    <p></p>
+    <h2 style="text-align: center"> In drei Schritten zum eigenen Bikefitting </h2>
+    <div style="text-align: center"> Wenn Sie Ihre Schrittänge schon kennen, können Sie Schritt 1 überspringen.</div>
+    <p></p>
+    <table>
+		<tr>
+			<th>1.Schrittlänge messen</th>
+			<th>2.Daten eingeben</th>
+			<th>3.Fahrradtyp wählen</th>
+		</tr>
+        <tr>
+            <td> Wir geben eine Anleitung, wie Sie Ihre Schrittlänge ermitteln können</td>
+            <td> Sie geben die benötigten Daten ein, um ein Fitting zu erstellen. Hier wird auch die Schrittlänge benötigt</td>
+            <td> Sie wählen aus, für welche Fahrradtypen Sie ein Fitting erstellen möchten</td>
+        </tr>
+		<tr>
+			<td><button>Start Messung</button></td>
+			<td><button>Start Eingabe</button></td>
+			<td><button>Start Fahrradwahl</button></td>
+		</tr>
+	</table>
 {% endblock %}

@@ -16,6 +16,7 @@ class FittingForm(forms.ModelForm):
     """ Klasse zur Formularerstellung.
         Aus Vorlage des Dozenten
     """
+
     class Meta:
         model = models.Fitting
         exclude = []
@@ -31,11 +32,11 @@ def index(request):
     return render(request, 'index.html')
 
 
-def upload(request):
+def measureStepLenght(request):
     """
     Generating the "Upload" page
     :param request:
-    :return:            The upload.html-file to render
+    :return:            The measureStepLenght.html-file to render
     """
     form = FittingForm()  # leeres Formular
-    return render(request, 'upload.html', dict(upload_form=form))
+    return render(request, 'measureStepLenght.html')

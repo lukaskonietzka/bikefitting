@@ -26,7 +26,7 @@ def index(request):
     """
     Generating the "Start" page
     :param request:
-    :return:            The index.html file to render
+    :return:            The accountsIndex.html file to render
     """
     fittings = FittingForm()
     return render(request, 'index.html')

@@ -1,0 +1,14 @@
+{% extends 'accountsIndex.html' %}
+
+{% block titel %} Bikefitting-Registrieren {% endblock %}
+
+{% block pageHeader %} Registrieren {% endblock %}
+
+{% block content %}
+    <h1>Create New Account</h1>
+    <form method="POST">
+         {% csrf_token %}
+        {{form.as_p}}
+        <button>Register</button>
+    </form>
+{% endblock %}

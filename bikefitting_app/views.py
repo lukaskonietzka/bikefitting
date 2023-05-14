@@ -38,5 +38,6 @@ def measureStepLenght(request):
     :param request:
     :return:            The measureStepLenght.html-file to render
     """
-    form = FittingForm()  # leeres Formular
+    rb = models.Roadbike()
+    rb.create_roadbike_fitting("Cube", 180, 90)
     return render(request, 'measureStepLenght.html')

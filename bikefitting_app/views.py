@@ -12,17 +12,7 @@ from django.http import HttpResponseRedirect
 from bikefitting_app import models
 from bikefitting_app.models import Roadbike, Mountainbike, Trekkingbike
 
-CURRENT_FITTING = None
-
-
-class FittingForm(forms.ModelForm):
-    """ Klasse zur Formularerstellung.
-        Aus Vorlage des Dozenten
-    """
-
-    class Meta:
-        model = models.Fitting
-        exclude = []
+global CURRENT_FITTING
 
 
 def index(request):
@@ -32,7 +22,6 @@ def index(request):
     :param request:     Data from the html file
     :return:            The index.html file to render
     """
-    fittings = FittingForm()
     return render(request, 'index.html')
 
 
@@ -46,17 +35,20 @@ def selectBike(request):
     if request.method == 'POST':
         button_value = request.POST.get('button')
         if button_value == 'roadBike':
-            rb = Roadbike()
             global rb
+            rb = Roadbike()
+            CURRENT_FITTING = 1
         elif button_value == 'mountainBike':
+            global mb
             mb = Mountainbike()
-            global  mb
+            CURRENT_FITTING = 2
         elif button_value == 'trekkingBike':
-            tb = Trekkingbike()
             global tb
+            tb = Trekkingbike()
+            CURRENT_FITTING = 3
         else:
-            #TODO html-Seite für Fehlermeldung error.html
-            pass
+            CURRENT_FITTING = 0
+            return render(request, 'error.html')
     return render(request, 'selectBike.html')
 
 def measureStepLenght(request):
@@ -73,11 +65,27 @@ def inputData(request):
     """
     Generating the "Input" page
     And calls the creatFitting()-Methode on an object.
+    This method is writing the data from the input into the database.
     :param request:     Data from the html file
     :return:            The inputData.html file to render
     """
-    # TODO holt die Daten aus dem input und
-    #  ruft die methode creatFitting auf und schreibt damit in die Datenbank
+    name = ''
+    height = 0
+    step_length = 0
+
+    if request.method == 'POST':
+        name = request.POST.get('name of this field')
+        height = request.POST.get('name of this field')
+        step_length = request.POST.get('name of this field')
+
+    if CURRENT_FITTING == 1:
+        rb.create_roadbike_fitting(name, height, step_length)
+    elif CURRENT_FITTING == 2:
+        mb.create_mountainbike_fitting(name, height, step_length)
+    elif CURRENT_FITTING == 3:
+        tb.create_trekkingbike_fitting(name, height, step_length)
+    else:
+        return render(request, 'error.html')
     return render(request, 'inputData.html')
 
 
@@ -90,3 +98,11 @@ def results(request):
     """
     # TODO greift auf das Datenmodell zu und gibt den Inhalt an die html weiter
     return render(request, 'results.html')
+
+def error(request):
+    """
+    Is always called, when an error appears.
+    :param request:
+    :return:
+    """
+    return render(request, 'error.html')

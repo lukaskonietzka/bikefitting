@@ -8,12 +8,15 @@
 from django.contrib import admin
 from django.urls import path
 
-from bikefitting_app.views import index, measureStepLenght, error
+from bikefitting_app.views import index, measureStepLenght, selectBike, inputData, results, error
 
 urlpatterns = [
-    path('', index, name='index'),                                                 # main-page
-    path('measureStepLenght', measureStepLenght, name='measureStepLenght'),     # upload-page
-    path('admin', admin.site.urls),                                             # admin-page
+    path('admin', admin.site.urls),
+    path('', index, name='index'),
+    path('measureStepLenght', measureStepLenght, name='measureStepLenght'),
+    path('selectBike', selectBike, name='selectBike'),
+    path('inputData', inputData, name='inputData'),
+    path('results', results, name='results'),
     path('error', error, name='error'),
 ]
 

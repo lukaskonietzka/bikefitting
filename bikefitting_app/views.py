@@ -12,8 +12,6 @@ from django.http import HttpResponseRedirect
 from bikefitting_app import models
 from bikefitting_app.models import Roadbike, Mountainbike, Trekkingbike
 
-global CURRENT_FITTING
-
 
 def index(request):
     """
@@ -24,7 +22,6 @@ def index(request):
     """
     return render(request, 'index.html')
 
-
 def selectBike(request):
     """
     Generating the "select Bike" page
@@ -33,21 +30,20 @@ def selectBike(request):
     :return:            The selectBike.html file to render
     """
     if request.method == 'POST':
-        button_value = request.POST.get('button')
+        button_value = request.POST.get('name of this button')
         if button_value == 'roadBike':
             global rb
             rb = Roadbike()
-            CURRENT_FITTING = 1
+            request.session['data'] = 1
         elif button_value == 'mountainBike':
             global mb
             mb = Mountainbike()
-            CURRENT_FITTING = 2
+            request.session['data'] = 2
         elif button_value == 'trekkingBike':
             global tb
             tb = Trekkingbike()
-            CURRENT_FITTING = 3
+            request.session['data'] = 3
         else:
-            CURRENT_FITTING = 0
             return render(request, 'error.html')
     return render(request, 'selectBike.html')
 
@@ -69,25 +65,21 @@ def inputData(request):
     :param request:     Data from the html file
     :return:            The inputData.html file to render
     """
-    name = ''
-    height = 0
-    step_length = 0
+    data = request.session.get('data')
 
     if request.method == 'POST':
         name = request.POST.get('name of this field')
         height = request.POST.get('name of this field')
         step_length = request.POST.get('name of this field')
 
-    if CURRENT_FITTING == 1:
+    if data == 1:
         rb.create_roadbike_fitting(name, height, step_length)
-    elif CURRENT_FITTING == 2:
+    elif data == 2:
         mb.create_mountainbike_fitting(name, height, step_length)
-    elif CURRENT_FITTING == 3:
+    elif data == 3:
         tb.create_trekkingbike_fitting(name, height, step_length)
-    else:
-        return render(request, 'error.html')
-    return render(request, 'inputData.html')
 
+    return render(request, 'inputData.html')
 
 def results(request):
     """

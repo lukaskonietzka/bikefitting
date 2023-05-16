@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 
-{% block titel %} {% endblock %}
+{% block titel %} Bikefitting-inputData {% endblock %}
 
-{% block pageHeader %} {% endblock %}
+{% block pageHeader %} Daten eingeben {% endblock %}
 
-{% block content %} {% endblock %}
+{% block content %}
+
+    <h1 style="text-align: left" > Hier kannst du deine ermittelten Daten eingeben </h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p> <button type = "submit">upload</button></p>
+    </form>
+
+{% endblock %}

@@ -2,15 +2,28 @@
 
 {% extends 'base.html' %}
 
-{% block titel %} Bikefitting-Messen {% endblock %}
+{% block titel %} Bikefitting-measurement {% endblock %}
 
-{% block pageHeader %} Schrittlänge Messen {% endblock %}
+{% block pageHeader %} Schrittlänge ermitteln {% endblock %}
 
 {% block content %}
-    <h1> Hello From Measure </h1>
+    <h1> So ermittelst du deine Schrittlänge </h1>
+
+    <div style="text-align: center" >
+    Um deine Schrittlänge zu messen, nimm dir ein Buch oder einen ähnlichen Gegenstand mit einer geraden Kante zur Hand.
+    Stelle dich ohne Schuhe mit den Beinen etwa schulterbreit mit dem Rücken an eine Wand.
+    Achte darauf, dass du den Gegenstand zwischen deinen Beinen waagrecht nach oben ziehst, bis es wirklich unangenehm wird.
+    Pass dabei auf, dass deine Beine am Boden bleiben. Wenn beide Füße den Boden nicht mehr berühren, ziehst du zu fest.
+    Bitte nun eine zweite Person, den Abstand vom Boden bis zum Buchrücken zu messen. Trage dieses Mass in das Textfeld ein und drücke auf "absenden".
+    </div>
+
+    <label style="align-content: center">
+        <textarea> Schrittlänge </textarea>
+    </label>
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <p> <button type = "submit">upload</button></p>
+        <p> <button type = "submit">absenden</button></p>
     </form>
 {% endblock %}

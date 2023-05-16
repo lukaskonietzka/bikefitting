@@ -1,7 +1,33 @@
 {% extends 'base.html' %}
 
-{% block titel %} {% endblock %}
+{% block titel %} Bikefitting-selectBike {% endblock %}
 
-{% block pageHeader %} {% endblock %}
+{% block pageHeader %} Fahrradtyp wählen {% endblock %}
 
-{% block content %} {% endblock %}
+{% block content %}
+    <h1></h1>
+
+    <p></p>
+    <h3 style="text-align: center"> Wähle zum Abschluss bitte den Typ deines Fahrrads aus </h3>
+    <div style="text-align: center"></div>
+    <p></p>
+
+    <table>
+		<tr>
+			<th>Mountainbike</th>
+			<th>Rennrad</th>
+			<th>Trekkingbike/SUV</th>
+		</tr>
+        <tr>
+            <td> Dein Zuhause ist jenseits der Zivilisation. Du ernährst dich von Staub, Dreck und Höhenluft? </td>
+            <td> Dein Zuhause ist die Straße. Du frisst Kilometer und gönnst dir zur Belohnung neue Titanschrauben? </td>
+            <td> Dein Zuhause ist überall und nirgendwo. Du befestigst dein Smartphone mitsamt dem Flapcase hochkant in der Lenkerhalterung? </td>
+        </tr>
+		<tr>
+			<td> <button> <a href = "/results" > Ich fahre Mountainbike </a> </button> </td>
+            <td> <button> <a href = "/results" > Ich fahre Rennrad </a> </button> </td>
+			<td> <button> <a href = "/results" > Ich fahre Trekkingrad </a> </button> </td>
+		</tr>
+	</table>
+
+{% endblock %}

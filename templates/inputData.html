@@ -7,6 +7,8 @@
 {% block content %}
 
     <h1 style="text-align: left" > Hier kannst du deine ermittelten Daten eingeben </h1>
+
+    <!-- TODO: Methodenaufruf bei Klick auf Button -->
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

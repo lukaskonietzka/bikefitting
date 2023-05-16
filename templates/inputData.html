@@ -6,9 +6,25 @@
 
 {% block content %}
 
-    <h1 style="text-align: left" > Hier kannst du deine ermittelten Daten eingeben </h1>
+    <h3 style="text-align: center" > Hier kannst du deine ermittelten Daten eingeben </h3>
 
-    <!-- TODO: Methodenaufruf bei Klick auf Button -->
+    <table>
+		<tr>  <!-- TODO: textareas must not be empty -->
+			<th style="text-align: left"> Schrittlänge </th>
+			<th> <textarea style="text-align: center"> Schrittlänge </textarea> </th>
+		</tr>
+        <tr>
+            <th style="text-align: left"> weiteres Körpermaß </th>
+			<th> <textarea style="text-align: center"> Körpermaß 2 </textarea> </th>
+        </tr>
+		<tr>
+			<th style="text-align: left"> weiteres Körpermaß </th>
+			<th> <textarea style="text-align: center"> Körpermaß 3 </textarea> </th>
+		</tr>
+	</table>
+
+    <!-- TODO: Methodenaufruf bei Klick auf Button oder bei Laden der "results"-Seite -->
+    <!-- TODO: Button in die Mitte setzen -->
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

@@ -11,6 +11,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from bikefitting_app import models
 from bikefitting_app.models import Roadbike, Mountainbike, Trekkingbike
+from .models import Fitting
 
 
 def index(request):
@@ -32,16 +33,10 @@ def selectBike(request):
     if request.method == 'POST':
         button_value = request.POST.get('name of this button')
         if button_value == 'roadBike':
-            global rb
-            rb = Roadbike()
             request.session['data'] = 1
         elif button_value == 'mountainBike':
-            global mb
-            mb = Mountainbike()
             request.session['data'] = 2
         elif button_value == 'trekkingBike':
-            global tb
-            tb = Trekkingbike()
             request.session['data'] = 3
         else:
             return render(request, 'error.html')
@@ -73,12 +68,16 @@ def inputData(request):
         step_length = request.POST.get('name of this field')
 
     if data == 1:
+        rb = Roadbike()
         rb.create_roadbike_fitting(name, height, step_length)
     elif data == 2:
+        mb = Mountainbike()
         mb.create_mountainbike_fitting(name, height, step_length)
     elif data == 3:
+        tb = Trekkingbike()
         tb.create_trekkingbike_fitting(name, height, step_length)
-
+    else:
+        return render(request, 'error.html')
     return render(request, 'inputData.html')
 
 def results(request):
@@ -88,8 +87,10 @@ def results(request):
     :param request:     Data from the html file
     :return:            The results.html file ti render
     """
+    data = Fitting.objects.all()
+
     # TODO greift auf das Datenmodell zu und gibt den Inhalt an die html weiter
-    return render(request, 'results.html')
+    return render(request, 'results.html', {'data': data})
 
 def error(request):
     """

@@ -73,6 +73,11 @@
 
             li.login-btn{
                 position: absolute;
+                right: 12%;
+            }
+
+            li.logout-btn{
+                position: absolute;
                 right: 7%;
             }
 
@@ -90,6 +95,7 @@
                 <li> <a href="/admin">Admin</a> </li>
                 <li class="login-btn"> <a href="/accounts/login/">Login</a></li>
                 <li class="register-btn"> <a href="/accounts/register/">Registrieren</a></li>
+                <li class="logout-btn"> <a href="/accounts/logout/">Logout</a></li>
             </ul>
         </nav>
         <h2><b>{% block pageHeader %} {% endblock %}</b></h2>

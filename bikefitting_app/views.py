@@ -7,10 +7,19 @@
 """
 
 from django import forms
+from django.forms import ModelForm
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from bikefitting_app import models
 from bikefitting_app.models import Roadbike, Mountainbike, Trekkingbike
+from bikefitting_app.models import Fitting
+
+
+class FittingForms(ModelForm):
+    class Meta:
+        model = Fitting
+        fields = '__all__'
+        #fields = ('Name', 'Height', 'Step Length',)
 
 
 def index(request):
@@ -32,19 +41,11 @@ def selectBike(request):
     if request.method == 'POST':
         button_value = request.POST.get('name of this button')
         if button_value == 'roadBike':
-            global rb
-            rb = Roadbike()
             request.session['data'] = 1
         elif button_value == 'mountainBike':
-            global mb
-            mb = Mountainbike()
             request.session['data'] = 2
         elif button_value == 'trekkingBike':
-            global tb
-            tb = Trekkingbike()
             request.session['data'] = 3
-        else:
-            return render(request, 'error.html')
     return render(request, 'selectBike.html')
 
 def measureStepLenght(request):
@@ -65,21 +66,27 @@ def inputData(request):
     :param request:     Data from the html file
     :return:            The inputData.html file to render
     """
+    # TODO
+    # Wie kann man daten berechnen und in das Datenmodel schreiben?
+
+    form = FittingForms()
     data = request.session.get('data')
 
     if request.method == 'POST':
-        name = request.POST.get('name of this field')
-        height = request.POST.get('name of this field')
-        step_length = request.POST.get('name of this field')
+        form = FittingForms(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context = {'form': form}
 
     if data == 1:
-        rb.create_roadbike_fitting(name, height, step_length)
+        rb = Roadbike()
     elif data == 2:
-        mb.create_mountainbike_fitting(name, height, step_length)
+        mb = Mountainbike()
     elif data == 3:
-        tb.create_trekkingbike_fitting(name, height, step_length)
+        tb = Trekkingbike()
 
-    return render(request, 'inputData.html')
+    return render(request, 'inputData.html', context)
 
 def results(request):
     """
@@ -88,8 +95,13 @@ def results(request):
     :param request:     Data from the html file
     :return:            The results.html file ti render
     """
-    # TODO greift auf das Datenmodell zu und gibt den Inhalt an die html weiter
-    return render(request, 'results.html')
+    # TODO
+    # Warum werden die Daten nicht ausgegeben
+    # greift auf das Datenmodell zu und gibt den Inhalt an die html weiter
+    # Verwende immere den Namen, der In den Parametern beim Model angegeben werden.
+
+    fittings = Fitting.objects.all()
+    return render(request, 'results.html', dict(fittings=fittings))
 
 def error(request):
     """

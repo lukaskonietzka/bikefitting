@@ -4,4 +4,11 @@
 
 {% block pageHeader %} {% endblock %}
 
-{% block content %} {% endblock %}
+{% block content %}
+    <h1>Fittings</h1>
+    <ul>
+        {% for fitting in fittings %}
+            <li>Name: {{ fitting.Name}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

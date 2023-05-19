@@ -24,12 +24,12 @@ class Fitting(models.Model):
                             Roadbike,
                             Mountainbike
     """
-    ID = models.IntegerField
     name = models.CharField(max_length=40, name='Name', null=False)
     height = models.IntegerField(name='Height', null=False)
     step_length = models.IntegerField(name='Step Length', null=False)
-    saddle_height = models.IntegerField(name='Saddle Height', null=False)
     frame_height = models.IntegerField(name='Frame Height', null=False)
+    saddle_height = models.IntegerField(name='Saddle Height', null=False)
+
 
     def get_frame_height(self):
         """
@@ -45,8 +45,7 @@ class Fitting(models.Model):
         """
         return self.saddle_height
 
-    @staticmethod
-    def round_to_integer(x):
+    def round_to_integer(self, x):
         """
         round the given argument to an integer
         :param x:   number that must be round
@@ -89,17 +88,17 @@ class Fitting(models.Model):
         self.frame_height = data[3]
         self.saddle_height = data[4]
 
-    def __str__(self):
-        """
-        Method from objekt, is called when an object
-        of Fitting should be printed via print()
-        :return: fields of Fitting that should be printed
-        """
-        return f"name: + {self.name} + \n +\
-                height: + {self.height} + \n +\
-                step length: + {self.step_length} + \n +\
-                frame height: + {self.frame_height} + \n +\
-                saddle height: + {self.saddle_height}"
+    # def __str__(self):
+    #     """
+    #     Method from objekt, is called when an object
+    #     of Fitting should be printed via print()
+    #     :return: fields of Fitting that should be printed
+    #     """
+    #     return f"name: {self.name}\n\
+    #             height: {self.height} \n\
+    #             step length: {self.step_length}\n\
+    #             frame height: {self.frame_height}\n\
+    #             saddle height: {self.saddle_height}\n"
 
 
 class Roadbike(Fitting):
@@ -130,6 +129,7 @@ class Roadbike(Fitting):
                 self.r_frame_height,
                 self.r_saddle_height)
         self.write_in_database(data)
+        return data
 
 
 class Trekkingbike(Fitting):
@@ -160,6 +160,7 @@ class Trekkingbike(Fitting):
                 self.t_frame_height,
                 self.t_saddle_height)
         self.write_in_database(data)
+        return data
 
 
 class Mountainbike(Fitting):
@@ -190,5 +191,6 @@ class Mountainbike(Fitting):
                 self.m_frame_height,
                 self.m_saddle_height)
         self.write_in_database(data)
+        return data
 
 

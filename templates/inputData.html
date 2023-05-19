@@ -4,4 +4,11 @@
 
 {% block pageHeader %} {% endblock %}
 
-{% block content %} {% endblock %}
+{% block content %}
+    <h3> Bitte geben Sie Ihre Daten ein und drücken "Senden". </h3>
+    <form action="" method="post">
+        {% csrf_token %}
+            {{ form }}
+    <input type="submit">
+    </form>
+{% endblock %}

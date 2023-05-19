@@ -1,7 +1,35 @@
 {% extends 'base.html' %}
 
-{% block titel %} {% endblock %}
+{% block titel %} Bikefitting-results {% endblock %}
 
-{% block pageHeader %} {% endblock %}
+{% block pageHeader %} Ergebnis {% endblock %}
 
-{% block content %} {% endblock %}
+{% block content %}
+
+    <h3 style="text-align: center"> Laut unserem Algorithmus sollte dein Fahrrad folgende Maße aufweisen: </h3>
+
+    <table>
+
+        <tr>
+			<th style="text-align: left"> Fahrradmaß </th>
+			<th> Unsere errechneten Ergebnisse </th>
+		</tr>
+
+		<tr> <!-- TODO: Methodenaufruf bei Klick auf Button oder öffnen dieser Seite -->
+			<td style="text-align: left" > Rahmengröße: </td>
+			<td style="text-align: left"> Hier muss der get-Methoden Aufruf zur Rahmengröße hin </td>
+		</tr>
+
+        <tr> <!-- TODO: Methodenaufruf bei Klick auf Button oder öffnen dieser Seite -->
+            <td style="text-align: left" > Laufradgröße: </td>
+            <td style="text-align: left" > Hier muss der get-Methoden Aufruf zur Laufradgröße hin </td>
+        </tr>
+
+         <tr> <!-- TODO: Methodenaufruf bei Klick auf Button oder öffnen dieser Seite -->
+            <td style="text-align: left" > Sattelhöhe: </td>
+            <td style="text-align: left" > Hier muss der get-Methoden Aufruf zur Sattelhöhe hin </td>
+        </tr>
+
+	</table>
+
+{% endblock %}

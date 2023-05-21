@@ -94,6 +94,8 @@ def inputData(request):
             print('TB', tb.create_trekkingbike_fitting(name, height, step_length))
         else:
             return render(request, 'error.html')
+        if form.is_valid():
+            form.save()
     return render(request, 'inputData.html', {'form': form})
 
 

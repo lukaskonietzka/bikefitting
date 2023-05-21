@@ -27,9 +27,26 @@ class Fitting(models.Model):
     name = models.CharField(max_length=40, name='Name', null=False)
     height = models.IntegerField(name='Height', null=False)
     step_length = models.IntegerField(name='Step Length', null=False)
-    frame_height = models.IntegerField(name='Frame Height', null=False)
-    saddle_height = models.IntegerField(name='Saddle Height', null=False)
+    frame_height = 0
+    saddle_height = 0
+    #frame_height = models.IntegerField(name='Frame Height', null=False)
+    #saddle_height = models.IntegerField(name='Saddle Height', null=False)
 
+    @property
+    def show_frame_height(self):
+        """
+        Calculated Field
+        :return:
+        """
+        return self.get_frame_height()
+
+    @property
+    def show_saddle_height(self):
+        """
+        Calculated Field
+        :return:
+        """
+        return self.get_saddle_height()
 
     def get_frame_height(self):
         """

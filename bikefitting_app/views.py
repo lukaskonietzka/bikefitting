@@ -8,7 +8,7 @@
 
 from django import forms
 from django.forms import ModelForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from bikefitting_app.models import Roadbike, Mountainbike, Trekkingbike
@@ -16,10 +16,17 @@ from bikefitting_app.models import Fitting
 
 
 class FittingForms(ModelForm):
+    name = forms.TextInput()
+    height = forms.TextInput()
+    step_length = forms.TextInput()
+    frame_height = forms.TextInput()
+    saddle_height = forms.TextInput()
+
     class Meta:
         model = Fitting
-        fields = '__all__'
-        #fields = ('Name', 'Height', 'Step Length',)
+        # fields = '__all__'
+        fields = ('Name', 'Height', 'Step Length',)
+
 
 
 def index(request):
@@ -31,26 +38,24 @@ def index(request):
     """
     return render(request, 'index.html')
 
+
 @login_required()
 def selectBike(request):
     """
     Generating the "select Bike" page
     and creat the object that is needed.
+    If more types are selected, we switch to the error-page
     :param request:     Data from the html file
     :return:            The selectBike.html file to render
     """
-    # TODO Button name muss noch ergänzt werden
-    if request.method == 'POST':
-        button_value = request.POST.get('name of this button')
-        if button_value == 'roadBike':
-            request.session['fittingTyp'] = 1
-        elif button_value == 'mountainBike':
-            request.session['fittingTyp'] = 2
-        elif button_value == 'trekkingBike':
-            request.session['fittingTyp'] = 3
-        else:
+    global current_bike
+    if request.POST:
+        bikes = request.POST.getlist('bike')
+        if len(bikes) > 1:
             return render(request, 'error.html')
+        current_bike = bikes[0]
     return render(request, 'selectBike.html')
+
 
 @login_required()
 def measureStepLenght(request):
@@ -62,39 +67,35 @@ def measureStepLenght(request):
     """
     return render(request, 'measureStepLenght.html')
 
+
 @login_required()
 def inputData(request):
     """
     Generating the "Input" page
     And calls the creatFitting()-Methode on an object.
     This method is writing the data from the input into the database.
+    If you type in another value, we throw an Exception.
     :param request:     Data from the html file
     :return:            The inputData.html file to render
     """
-    # TODO Punkte klären:
-    # Wie kann man daten berechnen und in das Datenmodel schreiben?
-    # wird automatisch eine ID im Datenmodell angelegt?
-    # Wie kann man auf den Usernamen der accounts zugreifen und wie schreibe ich es in die Datenbank?
+    form = FittingForms(request.POST)
+    if request.POST:
+        name = request.POST['Name']
+        height = int(request.POST['Height'])
+        step_length = int(request.POST['Step Length'])
+        if current_bike == 'rb':
+            rb = Roadbike()
+            print('RB', rb.create_roadbike_fitting(name, height, step_length))
+        elif current_bike == 'mb':
+            mb = Mountainbike()
+            print('MB', mb.create_mountainbike_fitting(name, height, step_length))
+        elif current_bike == 'tb':
+            tb = Trekkingbike()
+            print('TB', tb.create_trekkingbike_fitting(name, height, step_length))
+        else:
+            return render(request, 'error.html')
+    return render(request, 'inputData.html', {'form': form})
 
-    form = FittingForms()
-    fitting_type = request.session.get('fittingTyp')
-    data = {'Name': 'Sworks', 'Height': '180', 'Step Length': '90', 'Frame Height': '56', 'Saddle Height': '66'}
-
-    if request.method == 'POST':
-        form = FittingForms(request.POST)
-        if form.is_valid():
-            form.save()
-
-    context = {'form': form}
-
-    if fitting_type == 1:
-        rb = Roadbike()
-    elif fitting_type == 2:
-        mb = Mountainbike()
-    elif fitting_type == 3:
-        tb = Trekkingbike()
-
-    return render(request, 'inputData.html', context)
 
 @login_required()
 def results(request):
@@ -109,6 +110,7 @@ def results(request):
 
     fittings = Fitting.objects.all()
     return render(request, 'results.html', dict(fittings=fittings))
+
 
 def error(request):
     """

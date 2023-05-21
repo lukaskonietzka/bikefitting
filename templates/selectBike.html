@@ -28,12 +28,22 @@
             <td> <img src="/bikefitting_app/img/rennrad.jpg" width="200"> </td>
             <td> <img src="/bikefitting_app/img/trekkingbike.jpg" width="200"> </td>
         </tr>
-
-		<tr> <!-- TODO: Methodenaufruf bei Klick auf Button oder bei Laden der "results"-Seite -->
-			<td> <button> <a href = "/results" > Ich fahre Mountainbike </a> </button> </td>
-            <td> <button> <a href = "/results" > Ich fahre Rennrad </a> </button> </td>
-			<td> <button> <a href = "/results" > Ich fahre Trekkingrad </a> </button> </td>
-		</tr>
+        <tr> <!-- TODO: Methodenaufruf bei Klick auf Button oder bei Laden der "results"-Seite -->
+            <td> <button type="submit"name="mountainBike"> <a href = "/inputData" > Ich fahre Mountainbike </a> </button> </td>
+            <td> <button type="submit" name="roadBike"> <a href = "/inputData" > Ich fahre Rennrad </a> </button> </td>
+            <td> <button type="submit", name="trekkingBike"> <a href = "/inputData" > Ich fahre Trekkingrad </a> </button> </td>
+        </tr>
 	</table>
-
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <label>Rennrad</label>
+            <input type="checkbox", name="bike", value="rb">
+            <label>Mountainbike</label>
+            <input type="checkbox", name="bike", value="mb">
+            <label>Trekkingrad</label>
+            <input type="checkbox", name="bike", value="tb">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 {% endblock %}

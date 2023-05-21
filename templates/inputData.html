@@ -8,36 +8,36 @@
 
     <h3 style="text-align: center" > Hier kannst du deine ermittelten Daten eingeben </h3>
 
+
     <table>
-
         <tr>
-			<th style="text-align: left"> Körpermaß </th>
-			<th> Gib hier deine ermittelten Maße ein </th>
-		</tr>
-
-		<tr>  <!-- TODO: textareas must not be empty -->
-            <!-- TODO: Name, Körpergröße, Schrittlänge -->
-			<td style="text-align: left"> Schrittlänge </td>
-			<td> <textarea style="text-align: center"> Schrittlänge </textarea> </td>
-		</tr>
-
-        <tr> <!-- TODO: textareas must not be empty -->
-            <td style="text-align: left"> weiteres Körpermaß </td>
-			<td> <textarea style="text-align: center"> Körpermaß 2 </textarea> </td>
+            <th style="text-align: left"> Körpermaß </th>
+            <th> Gib hier deine ermittelten Maße ein </th>
         </tr>
 
-		<tr> <!-- TODO: INPUT!!! textareas must not be empty -->
-			<td style="text-align: left"> weiteres Körpermaß </td>
-			<td> <textarea style="text-align: center"> Körpermaß 3 </textarea> </td>
-		</tr>
+        <tr>  <!-- TODO: textareas must not be empty -->
+            <!-- TODO: Name, Körpergröße, Schrittlänge -->
+            <td style="text-align: left"> Name: </td>
+            <td> <input style="text-align: center", type="text" , name="name", id="name", placeholder="Cube"> cm </td>
+        </tr>
 
-	</table>
+        <tr> <!-- TODO: textareas must not be empty -->
+            <td style="text-align: left"> Körpergröße: </td>
+            <td> <input style="text-align: center", type="text" , name="height", id="height", placeholder="180"> cm </td>
+        </tr>
 
+        <tr> <!-- TODO: INPUT!!! textareas must not be empty -->
+            <td style="text-align: left"> Schrittlänge: </td>
+            <td> <input style="text-align: center", name="step_length,", id="step_length", placeholder="90"> cm  </td>
+        </tr>
+    </table>
+    <div>
+        <form method="POST" action="{% url 'inputData' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit"></button>
+        </form>
+    </div>
     <!-- TODO: Methodenaufruf bei Klick auf Button oder bei Laden der "results"-Seite -->
-    <form method="post" style="align-content: center">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type = "submit">upload</button> <!-- TODO: Button in die Mitte setzen -->
-    </form>
 
 {% endblock %}

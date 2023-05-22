@@ -1,93 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 
     <head>
         <meta charset="UTF-8">
         <title>{% block titel %}Bike-Fitting{% endblock %}</title>
-        <style>
-            nav {
-              background-color: #333;
-              height: 50px;
-            }
-            nav ul {
-              list-style: none;
-              margin: 0;
-              padding: 0;
-              display: flex;
-            }
-            nav li {
-              margin: 0 10px;
-            }
-            nav a {
-              color: lightgray;
-              text-decoration: none;
-              padding: 15px;
-              display: block;
-            }
-            nav a:hover {
-              background-color: #555;
-            }
-
-            h2 {
-                text-align: center;
-            }
-
-            table {
-	            border-collapse: collapse;
-	            width: 50%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            th, td {
-                padding: 8px;
-                text-align: center;
-                border-bottom: 1px solid #ddd;
-                background-color: lightgray;
-            }
-
-            th {
-                background-color: gray;
-            }
-
-            footer {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
-                height: 30px;
-                background-color: #333;
-                color: #fff;
-                padding: 20px;
-                text-align: center;
-            }
-
-            footer p {
-                margin: auto;
-
-            }
-
-            li.register-btn{
-                position: absolute;
-                right: 0;
-            }
-
-            li.login-btn{
-                position: absolute;
-                right: 12%;
-            }
-
-            li.logout-btn{
-                position: absolute;
-                right: 7%;
-            }
-
-            .imageCenter{
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-        </style>
+        <link rel="stylesheet" type="text/css" href="templates/style.css">
+        <!-- all Styles are now stored in "style.css" -->
     </head>
 
     <body>
@@ -107,7 +25,6 @@
         <h2><b>{% block pageHeader %} {% endblock %}</b></h2>
         <hr>
         {% block content %}
-
         {% endblock %}
         <hr>
         <footer>

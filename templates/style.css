@@ -1,87 +1,91 @@
-    nav {
-      background-color: #333;
-      height: 50px;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-    nav li {
-      margin: 0 10px;
-    }
-    nav a {
-      color: lightgray;
-      text-decoration: none;
-      padding: 15px;
-      display: block;
-    }
-    nav a:hover {
-      background-color: #555;
-    }
+nav {
+    background-color: #333;
+    height: 50px;
+    width: auto;
+}
 
-    h2 {
-        text-align: center;
-    }
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
 
-    table {
-        border-collapse: collapse;
-        width: 50%;
-        margin-left: auto;
-        margin-right: auto;
-    }
+nav li {
+    margin: 0 10px;
+}
 
-    th, td {
-        padding: 8px;
-        text-align: center;
-        border-bottom: 1px solid #ddd;
-        background-color: lightgray;
-    }
+nav a {
+    color: lightgray;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+}
 
-    th {
-        background-color: gray;
-    }
+nav a:hover {
+    background-color: #555;
+}
 
-    footer {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 30px;
-        background-color: #333;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-    }
+h2 {
+    text-align: center;
+}
 
-    footer p {
-        margin: auto;
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-    }
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: lightgray;
+}
 
-    li.register-btn{
-        position: absolute;
-        right: 0;
-    }
+th {
+    background-color: gray;
+}
 
-    li.login-btn{
-        position: absolute;
-        right: 12%;
-    }
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
 
-    li.logout-btn{
-        position: absolute;
-        right: 7%;
-    }
+footer p {
+    margin: auto;
 
-    .imageCenter{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+}
 
-    .buttonCenter{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.left-menu-btn {
+    float: left;
+    list-style-type: none;
+}
+
+.right-menu-btn {
+    float: right;
+    list-style-type: none;
+}
+
+.imageCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    background-color: white;
+}

@@ -10,17 +10,17 @@
 
     <body>
         <nav>
-            <ul>
-                <li> <a href="/">Start </a></li>
-                <li> <a href="/selectBike"> Fahrrad </a></li>
-                <li> <a href="/measureStepLenght"> Messen </a></li>
-                <li> <a href="/inputData"> Daten Eingeben </a></li>
-                <li> <a href="/results"> Ergebnis </a></li>
-                <li> <a href="/admin">Admin</a> </li>
-                <li class="login-btn"> <a href="/accounts/login/">Login</a></li>
-                <li class="register-btn"> <a href="/accounts/register/">Registrieren</a></li>
-                <li class="logout-btn"> <a href="/accounts/logout/">Logout</a></li>
-            </ul>
+            <ol>
+                <a href="/" class="left-menu-btn"> Start </a>
+                <a href="/selectBike"class="left-menu-btn" class="left-btn"> Fahrrad </a>
+                <a href="/measureStepLenght" class="left-menu-btn"> Messen </a>
+                <a href="/inputData" class="left-menu-btn"> Daten Eingeben </a>
+                <a href="/results" class="left-menu-btn"> Ergebnis </a>
+                <a href="/admin" class="left-menu-btn">Admin</a>
+                <a href="/accounts/login/"  class="right-menu-btn">Login</a>
+                <a href="/accounts/register/"  class="right-menu-btn"> Registrieren </a>
+                <a href="/accounts/logout/" class="right-menu-btn"> Logout </a>
+            </ol>
         </nav>
         <h2><b>{% block pageHeader %} {% endblock %}</b></h2>
         <hr>

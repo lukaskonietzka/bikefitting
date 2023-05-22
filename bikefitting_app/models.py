@@ -111,11 +111,11 @@ class Fitting(models.Model):
     #     of Fitting should be printed via print()
     #     :return: fields of Fitting that should be printed
     #     """
-    #     return f"name: {self.name}\n\
-    #             height: {self.height} \n\
-    #             step length: {self.step_length}\n\
-    #             frame height: {self.frame_height}\n\
-    #             saddle height: {self.saddle_height}\n"
+    #     return f"   name: {self.name}\n\
+    #                 height: {self.height} \n\
+    #                 step length: {self.step_length}\n\
+    #                 frame height: {self.frame_height}\n\
+    #                 saddle height: {self.saddle_height}\n"
 
 
 class Roadbike(Fitting):

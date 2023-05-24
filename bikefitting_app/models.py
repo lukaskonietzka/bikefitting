@@ -24,9 +24,9 @@ class Fitting(models.Model):
                             Roadbike,
                             Mountainbike
     """
-    name = models.CharField(max_length=40, name='Name', null=False)
-    height = models.IntegerField(name='Height', null=False)
-    step_length = models.IntegerField(name='Step Length', null=False)
+    name = models.CharField(max_length=40, name='Name')
+    height = models.IntegerField(name='Height')
+    step_length = models.IntegerField(name='Step Length')
     frame_height = 0
     saddle_height = 0
     #frame_height = models.IntegerField(name='Frame Height', null=False)
@@ -38,7 +38,7 @@ class Fitting(models.Model):
         Calculated Field
         :return:
         """
-        return self.get_frame_height()
+        return self.frame_height
 
     @property
     def show_saddle_height(self):
@@ -46,7 +46,7 @@ class Fitting(models.Model):
         Calculated Field
         :return:
         """
-        return self.get_saddle_height()
+        return self.saddle_height
 
     def get_frame_height(self):
         """

@@ -45,9 +45,9 @@
         {% for fitting in fittings %}
             <li> Name: {{ fitting.Name }}</li>
             <li> Körpergröße: {{ fitting.Height }}</li>
-            <li> Schrittlänge: ...</li>
-            <li> Rahmengröße: {{ fitting.show_frame_height }}</li>
-            <li> Sattelhöhe: {{ fitting.show_saddle_height }}</li>
+            <li> Schrittlänge: {{ fittings.StepLength }}</li>
+            <li> Rahmengröße: {{frame_height}}</li>
+            <li> Sattelhöhe: {{saddle_height}}</li>
         {% endfor %}
     </div>
 

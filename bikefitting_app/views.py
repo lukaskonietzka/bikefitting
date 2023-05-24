@@ -16,16 +16,13 @@ from bikefitting_app.models import Fitting
 
 
 class FittingForms(ModelForm):
-    name = forms.TextInput()
-    height = forms.TextInput()
-    step_length = forms.TextInput()
-    frame_height = forms.TextInput()
-    saddle_height = forms.TextInput()
-
+    def __int__(self):
+        self.fields['Name'].required = False
     class Meta:
         model = Fitting
         # fields = '__all__'
         fields = ('Name', 'Height', 'Step Length',)
+
 
 
 
@@ -51,7 +48,8 @@ def selectBike(request):
     global current_bike
     if request.POST:
         bikes = request.POST.getlist('bike')
-        if len(bikes) > 1:
+        if len(bikes) != 1:
+            current_bike = None
             return render(request, 'error.html')
         current_bike = bikes[0]
     return render(request, 'selectBike.html')
@@ -78,22 +76,14 @@ def inputData(request):
     :param request:     Data from the html file
     :return:            The inputData.html file to render
     """
+    form_class = FittingForms
     form = FittingForms(request.POST)
     if request.POST:
         name = request.POST['Name']
         height = int(request.POST['Height'])
         step_length = int(request.POST['Step Length'])
-        if current_bike == 'rb':
-            rb = Roadbike()
-            print('RB', rb.create_roadbike_fitting(name, height, step_length))
-        elif current_bike == 'mb':
-            mb = Mountainbike()
-            print('MB', mb.create_mountainbike_fitting(name, height, step_length))
-        elif current_bike == 'tb':
-            tb = Trekkingbike()
-            print('TB', tb.create_trekkingbike_fitting(name, height, step_length))
-        else:
-            return render(request, 'error.html')
+        input_from_user = (name, height, step_length)
+        request.session['data'] = input_from_user
         if form.is_valid():
             form.save()
     return render(request, 'inputData.html', {'form': form})
@@ -111,7 +101,25 @@ def results(request):
     # Verwende immer den Namen, der In den Parametern beim Model angegeben werden.
 
     fittings = Fitting.objects.all()
-    return render(request, 'results.html', dict(fittings=fittings))
+    name = request.session.get('data')[0]
+    height = request.session.get('data')[1]
+    step_length = request.session.get('data')[2]
+
+    if current_bike == None:
+        return render(request, 'error.html')
+
+    if current_bike == 'rb':
+        rb = Roadbike()
+        name, height, step_length, frame_height, saddle_height = rb.create_roadbike_fitting(name, height, step_length)
+    elif current_bike == 'mb':
+        mb = Mountainbike()
+        name, height, step_length, frame_height, saddle_height = mb.create_mountainbike_fitting(name, height, step_length)
+    elif current_bike == 'tb':
+        tb = Trekkingbike()
+        name, height, step_length, frame_height, saddle_height = tb.create_trekkingbike_fitting(name, height, step_length)
+    else:
+        return render(request, 'error.html')
+    return render(request, 'results.html', dict(fittings=fittings, frame_height=frame_height, saddle_height=saddle_height))
 
 
 def error(request):

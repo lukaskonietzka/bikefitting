@@ -17,17 +17,17 @@
 
         <tr> <!-- TODO: Methodenaufruf bei Klick auf Button oder öffnen dieser Seite -->
 			<td style="text-align: left" > Name: </td>
-			<td style="text-align: left"> Hier muss der get-Methoden Aufruf zur Rahmengröße hin </td>
+			<td style="text-align: left"> {{ fittings.Name }} </td>
 		</tr>
 
         <tr> <!-- TODO: Methodenaufruf bei Klick auf Button oder öffnen dieser Seite -->
 			<td style="text-align: left" > Körpergröße: </td>
-			<td style="text-align: left"> Hier muss der get-Methoden Aufruf zur Rahmengröße hin </td>
+			<td style="text-align: left"> {{ fittings.Height }} </td>
 		</tr>
 
         <tr> <!-- TODO: Methodenaufruf bei Klick auf Button oder öffnen dieser Seite -->
 			<td style="text-align: left" > Schrittlänge: </td>
-			<td style="text-align: left"> Hier muss der get-Methoden Aufruf zur Rahmengröße hin </td>
+			<td style="text-align: left"> {{frame_height}} </td>
 		</tr>
 
 		<tr> <!-- TODO: Methodenaufruf bei Klick auf Button oder öffnen dieser Seite -->
@@ -37,16 +37,8 @@
 
          <tr> <!-- TODO: Methodenaufruf bei Klick auf Button oder öffnen dieser Seite -->
             <td style="text-align: left" > Sattelhöhe: </td>
-            <td style="text-align: left" > Hier muss der get-Methoden Aufruf zur Sattelhöhe hin </td>
+            <td style="text-align: left" > {{saddle_height}} </td>
         </tr>
 
 	</table>
-    <div>
-            <li> Name: {{ fittings.Name }}</li>
-            <li> Körpergröße: {{ fittings.Height }}</li>
-            <li> Schrittlänge: {{ fittings.StepLength }}</li>
-            <li> Rahmengröße: {{frame_height}}</li>
-            <li> Sattelhöhe: {{saddle_height}}</li>
-    </div>
-
 {% endblock %}

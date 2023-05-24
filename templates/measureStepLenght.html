@@ -7,21 +7,28 @@
 {% block pageHeader %} Schrittlänge ermitteln {% endblock %}
 
 {% block content %}
-    <h3 style="text-align: center"> So ermittelst du deine Schrittlänge </h3>
+    <table>
+		<tr>
+			<th>So ermittelst du deine Schrittlänge</th>
+		</tr>
+		<tr>
+			<td>
+                <p>
+                    Um deine Schrittlänge zu messen, nimm dir ein Buch oder einen ähnlichen Gegenstand mit einer geraden Kante zur Hand. <br>
+                    Stelle dich ohne Schuhe mit den Beinen etwa schulterbreit mit dem Rücken an eine Wand. <br>
+                    Achte darauf, dass du den Gegenstand zwischen deinen Beinen waagrecht nach oben ziehst, bis es wirklich unangenehm wird. <br>
+                    Pass dabei auf, dass deine Beine am Boden bleiben. Wenn beide Füße den Boden nicht mehr berühren, ziehst du zu fest. <br>
+                    Bitte nun eine zweite Person, den Abstand vom Boden bis zum Buchrücken zu messen. Notiere dir dieses Maß für den nächsten Schritt. <br>
+                </p>
+            </td>
+		</tr>
+		<tr>
+			<td><div class="imageCenter"> <img src="/bikefitting_app/img/schrittlaenge.jpeg"> </div></td>
+		</tr>
+		<tr>
+			<td><p> <button type = "submit" style = "align-items: center"> <a href = "/inputData" > nächster Schritt </a> </button> </p></td>
+		</tr>
+	</table>
 
-    <div style="text-align: center" >
-    <p>
-    Um deine Schrittlänge zu messen, nimm dir ein Buch oder einen ähnlichen Gegenstand mit einer geraden Kante zur Hand. <br>
-    Stelle dich ohne Schuhe mit den Beinen etwa schulterbreit mit dem Rücken an eine Wand. <br>
-    Achte darauf, dass du den Gegenstand zwischen deinen Beinen waagrecht nach oben ziehst, bis es wirklich unangenehm wird. <br>
-    Pass dabei auf, dass deine Beine am Boden bleiben. Wenn beide Füße den Boden nicht mehr berühren, ziehst du zu fest. <br>
-    Bitte nun eine zweite Person, den Abstand vom Boden bis zum Buchrücken zu messen. Notiere dir dieses Maß für den nächsten Schritt. <br>
-    </p>
-    </div>
-
-
-    <div class="imageCenter"> <img src="/bikefitting_app/img/schrittlaenge.jpeg"> </div>
-    <!-- TODO: Button in die Mitte setzen -->
-    <p> <button type = "submit" style = "align-items: center"> <a href = "/inputData" > nächster Schritt </a> </button> </p>
 
 {% endblock %}

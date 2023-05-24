@@ -21,7 +21,7 @@ class FittingForms(ModelForm):
     class Meta:
         model = Fitting
         # fields = '__all__'
-        fields = ('Name', 'Height', 'Step Length',)
+        fields = ('Name', 'Height', 'StepLength',)
 
 
 
@@ -81,7 +81,7 @@ def inputData(request):
     if request.POST:
         name = request.POST['Name']
         height = int(request.POST['Height'])
-        step_length = int(request.POST['Step Length'])
+        step_length = int(request.POST['StepLength'])
         input_from_user = (name, height, step_length)
         request.session['data'] = input_from_user
         if form.is_valid():

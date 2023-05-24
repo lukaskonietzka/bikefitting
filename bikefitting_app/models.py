@@ -26,7 +26,7 @@ class Fitting(models.Model):
     """
     name = models.CharField(max_length=40, name='Name')
     height = models.IntegerField(name='Height')
-    step_length = models.IntegerField(name='Step Length')
+    step_length = models.IntegerField(name='StepLength')
     frame_height = 0
     saddle_height = 0
     #frame_height = models.IntegerField(name='Frame Height', null=False)

@@ -42,13 +42,11 @@
 
 	</table>
     <div>
-        {% for fitting in fittings %}
-            <li> Name: {{ fitting.Name }}</li>
-            <li> Körpergröße: {{ fitting.Height }}</li>
-            <li> Schrittlänge: {{ fitting.StepLength }}</li>
+            <li> Name: {{ fittings.Name }}</li>
+            <li> Körpergröße: {{ fittings.Height }}</li>
+            <li> Schrittlänge: {{ fittings.StepLength }}</li>
             <li> Rahmengröße: {{frame_height}}</li>
             <li> Sattelhöhe: {{saddle_height}}</li>
-        {% endfor %}
     </div>
 
 {% endblock %}

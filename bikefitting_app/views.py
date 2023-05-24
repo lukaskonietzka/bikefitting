@@ -100,7 +100,7 @@ def results(request):
     # greift auf das Datenmodell zu und gibt den Inhalt an die html weiter
     # Verwende immer den Namen, der In den Parametern beim Model angegeben werden.
 
-    fittings = Fitting.objects.all()
+    fittings = Fitting.objects.last()
     name = request.session.get('data')[0]
     height = request.session.get('data')[1]
     step_length = request.session.get('data')[2]

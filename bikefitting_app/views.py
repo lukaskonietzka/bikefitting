@@ -33,6 +33,7 @@ def index(request):
     :param request:     Data from the html file
     :return:            The index.html file to render
     """
+    #TODO Hier current-bike auf null setzen
     return render(request, 'index.html')
 
 
@@ -50,7 +51,7 @@ def selectBike(request):
         bikes = request.POST.getlist('bike')
         if len(bikes) != 1:
             current_bike = None
-            return render(request, 'error.html')
+            return render(request, 'error.html', show_message("Bitte wählen Sie zuerst ein Fahrrad aus"))
         current_bike = bikes[0]
     return render(request, 'selectBike.html')
 
@@ -118,7 +119,7 @@ def results(request):
         tb = Trekkingbike()
         name, height, step_length, frame_height, saddle_height = tb.create_trekkingbike_fitting(name, height, step_length)
     else:
-        return render(request, 'error.html')
+        return render(request, 'error.html', show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
     return render(request, 'results.html', dict(fittings=fittings, frame_height=frame_height, saddle_height=saddle_height))
 
 
@@ -128,4 +129,21 @@ def error(request):
     :param request:
     :return:
     """
+
     return render(request, 'error.html')
+
+
+def error404(request):
+    #TODO: Create an 404-Page and turn of the debug-mode
+    pass
+
+
+def show_message(message):
+    """
+    Returns a dict with the given parameter
+    to show an error-Message
+    :param message:
+    :return:
+    """
+
+    return dict(message=message)

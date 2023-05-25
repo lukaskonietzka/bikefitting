@@ -33,7 +33,8 @@ def index(request):
     :param request:     Data from the html file
     :return:            The index.html file to render
     """
-    #TODO Hier current-bike auf null setzen
+    global current_bike
+    current_bike = None
     return render(request, 'index.html')
 
 
@@ -98,8 +99,7 @@ def results(request):
     :param request:     Data from the html file
     :return:            The results.html file ti render
     """
-    # greift auf das Datenmodell zu und gibt den Inhalt an die html weiter
-    # Verwende immer den Namen, der In den Parametern beim Model angegeben werden.
+    #TODO Cosmetic!!
 
     fittings = Fitting.objects.last()
     name = request.session.get('data')[0]
@@ -129,7 +129,6 @@ def error(request):
     :param request:
     :return:
     """
-
     return render(request, 'error.html')
 
 
@@ -138,12 +137,13 @@ def error404(request):
     pass
 
 
-def show_message(message):
+def show_message(custom_message):
     """
     Returns a dict with the given parameter
     to show an custom message on each error-Message
     :param message:
     :return:
     """
-
+    base_message = ""
+    message = base_message + custom_message
     return dict(message=message)

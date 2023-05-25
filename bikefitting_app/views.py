@@ -132,9 +132,14 @@ def error(request):
     return render(request, 'error.html')
 
 
-def error404(request):
-    #TODO: Create an 404-Page and turn of the debug-mode
-    pass
+def handle_404(request, exception):
+    """
+
+    :param request:
+    :param exception:
+    :return:
+    """
+    return render(request, 'error404.html')
 
 
 def show_message(custom_message):

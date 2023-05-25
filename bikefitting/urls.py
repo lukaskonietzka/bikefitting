@@ -25,3 +25,5 @@ urlpatterns = [
     path('', include('bikefitting_app.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+
+handler404 = 'bikefitting_app.views.handle_404'

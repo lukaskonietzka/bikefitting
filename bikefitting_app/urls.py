@@ -7,6 +7,7 @@
 
 from django.contrib import admin
 from django.urls import path
+from bikefitting_app import views
 
 from bikefitting_app.views import index, measureStepLenght, selectBike, inputData, results, error
 
@@ -19,6 +20,7 @@ urlpatterns = [
     path('results', results, name='results'),
     path('error', error, name='error'),
 ]
+
 
 
 

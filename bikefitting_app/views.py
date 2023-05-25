@@ -107,7 +107,7 @@ def results(request):
     step_length = request.session.get('data')[2]
 
     if current_bike == None:
-        return render(request, 'error.html')
+        return render(request, 'error.html', show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
 
     if current_bike == 'rb':
         rb = Roadbike()
@@ -119,7 +119,7 @@ def results(request):
         tb = Trekkingbike()
         name, height, step_length, frame_height, saddle_height = tb.create_trekkingbike_fitting(name, height, step_length)
     else:
-        return render(request, 'error.html', show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
+        return render(request, 'error.html')
     return render(request, 'results.html', dict(fittings=fittings, frame_height=frame_height, saddle_height=saddle_height))
 
 
@@ -141,7 +141,7 @@ def error404(request):
 def show_message(message):
     """
     Returns a dict with the given parameter
-    to show an error-Message
+    to show an custom message on each error-Message
     :param message:
     :return:
     """

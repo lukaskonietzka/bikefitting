@@ -1,6 +1,19 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
 nav {
     background-color: #333;
-    height: 50px;
+    height: auto;
     width: auto;
 }
 
@@ -12,7 +25,7 @@ nav ul {
 }
 
 nav li {
-    margin: 0 10px;
+    margin: 10px;
 }
 
 nav a {
@@ -32,7 +45,7 @@ h2 {
 
 table {
     border-collapse: collapse;
-    width: 50%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -41,17 +54,14 @@ th, td {
     padding: 8px;
     text-align: center;
     border-bottom: 1px solid #ddd;
-    background-color: lightgray;
+    background-color: white;
 }
 
 th {
-    background-color: gray;
+    background-color: white;
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
     height: 30px;
     background-color: #333;
     color: #fff;
@@ -89,3 +99,8 @@ footer p {
 .active {
     background-color: white;
 }
+
+.sticky {
+        position: sticky;
+        top: 0;
+    }

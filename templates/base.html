@@ -22,11 +22,15 @@
                 <a href="/accounts/logout/" class="right-menu-btn"> Logout </a>
             </ol>
         </nav>
+        <header>
         <h2><b>{% block pageHeader %} {% endblock %}</b></h2>
         <hr>
+        </header>
+        <main>
         {% block content %}
         {% endblock %}
         <hr>
+        </main>
         <footer>
 		    <p>This side was made by Sebastian and Lukas!</p>
 	    </footer>

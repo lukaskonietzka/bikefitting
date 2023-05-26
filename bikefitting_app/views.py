@@ -36,7 +36,6 @@ def index(request):
     :return:            The index.html file to render
     """
     global current_bike
-    current_bike = None
     return render(request, 'index.html')
 
 
@@ -88,6 +87,9 @@ def inputData(request):
         step_length = int(request.POST['StepLength'])
         input_from_user = (name, height, step_length)
         request.session['data'] = input_from_user
+        if name is None or step_length is None or step_length is None:
+            return render(request, 'error.html',
+                          show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
         if form.is_valid():
             form.save()
     return render(request, 'inputData.html', {'form': form})
@@ -109,23 +111,29 @@ def results(request):
     step_length = request.session.get('data')[2]
 
     if current_bike is None:
-        return render(request, 'error.html', show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
+        return render(request, 'error.html',
+                      show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
 
     if current_bike == 'rb':
         rb = Roadbike()
-        name, height, step_length, frame_height, saddle_height = rb.create_roadbike_fitting(name, height, step_length)
+        name, height, step_length, frame_height, saddle_height = rb.create_roadbike_fitting(name,
+                                                                                            height,
+                                                                                            step_length)
     elif current_bike == 'mb':
         mb = Mountainbike()
-        name, height, step_length, frame_height, saddle_height = mb.create_mountainbike_fitting(name, height,
+        name, height, step_length, frame_height, saddle_height = mb.create_mountainbike_fitting(name,
+                                                                                                height,
                                                                                                 step_length)
     elif current_bike == 'tb':
         tb = Trekkingbike()
-        name, height, step_length, frame_height, saddle_height = tb.create_trekkingbike_fitting(name, height,
+        name, height, step_length, frame_height, saddle_height = tb.create_trekkingbike_fitting(name,
+                                                                                                height,
                                                                                                 step_length)
     else:
         return render(request, 'error.html')
-    return render(request, 'results.html',
-                  dict(fittings=fittings, frame_height=frame_height, saddle_height=saddle_height))
+    return render(request, 'results.html', dict(fittings=fittings,
+                                                frame_height=frame_height,
+                                                saddle_height=saddle_height))
 
 
 def error(request):

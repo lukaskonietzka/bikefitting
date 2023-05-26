@@ -16,14 +16,16 @@ from bikefitting_app.models import Fitting
 
 
 class FittingForms(ModelForm):
-    def __int__(self):
-        self.fields['Name'].required = False
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['Name'].required = True
+        self.fields['Height'].required = True
+        self.fields['StepLength'].required = True
+
     class Meta:
         model = Fitting
         # fields = '__all__'
         fields = ('Name', 'Height', 'StepLength',)
-
-
 
 
 def index(request):
@@ -99,28 +101,32 @@ def results(request):
     :param request:     Data from the html file
     :return:            The results.html file ti render
     """
-    #TODO Cosmetic!!
+    # TODO Cosmetic!!
 
     fittings = Fitting.objects.last()
     name = request.session.get('data')[0]
     height = request.session.get('data')[1]
     step_length = request.session.get('data')[2]
 
-    if current_bike == None:
-        return render(request, 'error.html', show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
+    if current_bike is None:
+        return render(request, 'error.html',
+                      show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
 
     if current_bike == 'rb':
         rb = Roadbike()
         name, height, step_length, frame_height, saddle_height = rb.create_roadbike_fitting(name, height, step_length)
     elif current_bike == 'mb':
         mb = Mountainbike()
-        name, height, step_length, frame_height, saddle_height = mb.create_mountainbike_fitting(name, height, step_length)
+        name, height, step_length, frame_height, saddle_height = mb.create_mountainbike_fitting(name, height,
+                                                                                                step_length)
     elif current_bike == 'tb':
         tb = Trekkingbike()
-        name, height, step_length, frame_height, saddle_height = tb.create_trekkingbike_fitting(name, height, step_length)
+        name, height, step_length, frame_height, saddle_height = tb.create_trekkingbike_fitting(name, height,
+                                                                                                step_length)
     else:
         return render(request, 'error.html')
-    return render(request, 'results.html', dict(fittings=fittings, frame_height=frame_height, saddle_height=saddle_height))
+    return render(request, 'results.html',
+                  dict(fittings=fittings, frame_height=frame_height, saddle_height=saddle_height))
 
 
 def error(request):
@@ -146,7 +152,7 @@ def show_message(custom_message):
     """
     Returns a dict with the given parameter
     to show an custom message on each error-Message
-    :param message:
+    :param custom_message:
     :return:
     """
     base_message = ""

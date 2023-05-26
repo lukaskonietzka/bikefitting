@@ -5,6 +5,19 @@
         <meta charset="UTF-8">
         <title>{% block titel %}Bike-Fitting{% endblock %}</title>
         <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                display: flex;
+                flex-direction: column;
+            }
+
+            main {
+                flex: 1;
+            }
+
             nav {
               background-color: #333;
               height: 50px;
@@ -51,9 +64,6 @@
             }
 
             footer {
-                position: absolute;
-                bottom: 0;
-                width: 100%;
                 height: 30px;
                 background-color: #333;
                 color: #fff;
@@ -86,12 +96,16 @@
                 justify-content: center;
                 align-items: center;
             }
+            .sticky {
+                position: sticky;
+                top: 0;
+            }
 
         </style>
     </head>
 
     <body>
-        <nav>
+        <nav class="sticky">
             <ul>
                 <li> <a href="/">Start </a></li>
                 <li> <a href="/selectBike"> Fahrrad </a></li>
@@ -104,12 +118,18 @@
                 <li class="logout-btn"> <a href="/accounts/logout/">Logout</a></li>
             </ul>
         </nav>
-        <h2><b>{% block pageHeader %} {% endblock %}</b></h2>
-        <hr>
-        {% block content %}
+        <header>
+            <h2><b>{% block pageHeader %} {% endblock %}</b></h2>
+            <hr>
+        </header>
 
-        {% endblock %}
-        <hr>
+        <main>
+            {% block content %}
+
+            {% endblock %}
+            <hr>
+        </main>
+
         <footer>
 		    <p>This side was made by Sebastian and Lukas!</p>
 	    </footer>

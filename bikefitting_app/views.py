@@ -6,11 +6,9 @@
                 Konietzka, Lukas
 """
 
-from django import forms
 from django.forms import ModelForm
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponseRedirect
 from bikefitting_app.models import Roadbike, Mountainbike, Trekkingbike
 from bikefitting_app.models import Fitting
 
@@ -36,6 +34,7 @@ def index(request):
     :return:            The index.html file to render
     """
     global current_bike
+    current_bike = None
     return render(request, 'index.html')
 
 

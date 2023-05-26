@@ -1,26 +1,91 @@
 nav {
-  background-color: #333;
-  height: 50px;
+    background-color: #333;
+    height: 50px;
+    width: auto;
 }
 
 nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
 nav li {
-  margin: 0 10px;
+    margin: 0 10px;
 }
 
 nav a {
-  color: lightgray;
-  text-decoration: none;
-  padding: 15px;
-  display: block;
+    color: lightgray;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
 }
 
 nav a:hover {
-  background-color: #555;
+    background-color: #555;
+}
+
+h2 {
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    background-color: lightgray;
+}
+
+th {
+    background-color: gray;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    margin: auto;
+
+}
+
+.left-menu-btn {
+    float: left;
+    list-style-type: none;
+}
+
+.right-menu-btn {
+    float: right;
+    list-style-type: none;
+}
+
+.imageCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    background-color: white;
 }

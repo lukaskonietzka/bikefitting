@@ -109,7 +109,7 @@ def results(request):
     step_length = request.session.get('data')[2]
 
     if current_bike is None:
-        return render(request, 'error.html',show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
+        return render(request, 'error.html', show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
 
     if current_bike == 'rb':
         rb = Roadbike()

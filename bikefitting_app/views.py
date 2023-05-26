@@ -153,6 +153,16 @@ def handle_404(request, exception):
     """
     return render(request, 'error404.html')
 
+def handle_500(request):
+    """
+
+    :param request:
+    :param exception:
+    :return:
+    """
+    return render(request, 'error.html',
+                  show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
+
 
 def show_message(custom_message):
     """

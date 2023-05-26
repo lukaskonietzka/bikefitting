@@ -27,3 +27,4 @@ urlpatterns = [
 
 
 handler404 = 'bikefitting_app.views.handle_404'
+handler500 = 'bikefitting_app.views.handle_500'

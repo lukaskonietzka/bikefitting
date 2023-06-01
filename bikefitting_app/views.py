@@ -115,19 +115,13 @@ def results(request):
 
     if current_bike == 'rb':
         rb = Roadbike()
-        name, height, step_length, frame_height, saddle_height = rb.create_roadbike_fitting(name,
-                                                                                            height,
-                                                                                            step_length)
+        frame_height, saddle_height = rb.create_roadbike_fitting(name, height, step_length)
     elif current_bike == 'mb':
         mb = Mountainbike()
-        name, height, step_length, frame_height, saddle_height = mb.create_mountainbike_fitting(name,
-                                                                                                height,
-                                                                                                step_length)
+        frame_height, saddle_height = mb.create_mountainbike_fitting(name, height, step_length)
     elif current_bike == 'tb':
         tb = Trekkingbike()
-        name, height, step_length, frame_height, saddle_height = tb.create_trekkingbike_fitting(name,
-                                                                                                height,
-                                                                                                step_length)
+        frame_height, saddle_height = tb.create_trekkingbike_fitting(name, height, step_length)
     else:
         return render(request, 'error.html')
     return render(request, 'results.html', dict(fittings=fittings,

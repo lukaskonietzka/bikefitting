@@ -29,6 +29,7 @@ class Fitting(models.Model):
     step_length = models.IntegerField(name='StepLength')
     frame_height = 0
     saddle_height = 0
+    bike_type = ""
 
     def get_frame_height(self):
         """
@@ -75,18 +76,6 @@ class Fitting(models.Model):
         step_length = step_length * factor
         return self.round_to_integer(step_length)
 
-    def write_in_database(self, data):
-        """
-        Write the current datas into the data-model
-        :param data:    Tupel made out of 5, current datas
-        :return:        None
-        """
-        self.name = data[0]
-        self.height = data[1]
-        self.step_length = data[2]
-        self.frame_height = data[3]
-        self.saddle_height = data[4]
-
     def __str__(self):
         """
         Method from objekt, is called when an object
@@ -108,24 +97,26 @@ class Roadbike(Fitting):
 
     def create_roadbike_fitting(self, name, height, step_length):
         """
-        Get and calculate all required datas and write them into
+        Get and calculate all required datas to work with them
         the database
         :param name:        user_name
         :param height:      user_height
         :param step_length: user_step_length
-        :return:            None
+        :return:            frame_height, saddle_height
         """
         self.r_name = name
         self.r_height = height
         self.r_step_length = step_length
         self.r_frame_height = self.calculate_frame_height(step_length, self._STEP_LENGTH_FACTOR)
         self.r_saddle_height = self.calculate_saddle_height(step_length, self._SADDLE_HEIGHT_FACTOR)
+        self.bike_type = "Roadbike"
+
         data = (self.r_name,
                 self.r_height,
                 self.r_step_length,
                 self.r_frame_height,
-                self.r_saddle_height)
-        self.write_in_database(data)
+                self.r_saddle_height,
+                self.bike_type)
         return data[3:]
 
 
@@ -139,24 +130,25 @@ class Trekkingbike(Fitting):
 
     def create_trekkingbike_fitting(self, name, height, step_length):
         """
-        Get and calculate all required datas and write them into
+        Get and calculate all required datas to work with them
         the database
         :param name:        user_name
         :param height:      user_height
         :param step_length: user_step_length
-        :return:            None
+        :return:            frame_height, saddle_height
         """
         self.t_name = name
         self.t_height = height
         self.t_step_length = step_length
         self.t_frame_height = self.calculate_frame_height(step_length, self._STEP_LENGTH_FACTOR)
         self.t_saddle_height = self.calculate_saddle_height(step_length, self._SADDLE_HEIGHT_FACTOR)
+        self.bike_type = "Trekkingbike"
         data = (self.t_name,
                 self.t_height,
                 self.t_step_length,
                 self.t_frame_height,
-                self.t_saddle_height)
-        self.write_in_database(data)
+                self.t_saddle_height,
+                self.bike_type)
         return data[3:]
 
 
@@ -170,24 +162,24 @@ class Mountainbike(Fitting):
 
     def create_mountainbike_fitting(self, name, height, step_length):
         """
-        Get and calculate all required datas and write them into
-        the database
+        Get and calculate all required datas to work with them
         :param name:        user_name
         :param height:      user_height
         :param step_length: user_step_length
-        :return:            None
+        :return:            frame_height, saddle_height
         """
         self.m_name = name
         self.m_height = height
         self.m_step_length = step_length
         self.m_frame_height = self.calculate_frame_height(step_length, self._STEP_LENGTH_FACTOR)
         self.m_saddle_height = self.calculate_saddle_height(step_length, self._SADDLE_HEIGHT_FACTOR)
+        self.bike_type = "Mountainbike"
         data = (self.m_name,
                 self.m_height,
                 self.m_step_length,
                 self.m_frame_height,
-                self.m_saddle_height)
-        self.write_in_database(data)
+                self.m_saddle_height,
+                self.bike_type)
         return data[3:]
 
 

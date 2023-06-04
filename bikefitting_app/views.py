@@ -108,6 +108,7 @@ def results(request):
     name = request.session.get('data')[0]
     height = request.session.get('data')[1]
     step_length = request.session.get('data')[2]
+    bike_type = "None"
 
     if current_bike is None:
         return render(request, 'error.html',
@@ -115,18 +116,19 @@ def results(request):
 
     if current_bike == 'rb':
         rb = Roadbike()
-        frame_height, saddle_height = rb.create_roadbike_fitting(name, height, step_length)
+        frame_height, saddle_height, bike_type = rb.create_roadbike_fitting(name, height, step_length)
     elif current_bike == 'mb':
         mb = Mountainbike()
-        frame_height, saddle_height = mb.create_mountainbike_fitting(name, height, step_length)
+        frame_height, saddle_height, bike_type = mb.create_mountainbike_fitting(name, height, step_length)
     elif current_bike == 'tb':
         tb = Trekkingbike()
-        frame_height, saddle_height = tb.create_trekkingbike_fitting(name, height, step_length)
+        frame_height, saddle_height, bike_type = tb.create_trekkingbike_fitting(name, height, step_length)
     else:
         return render(request, 'error.html')
     return render(request, 'results.html', dict(fittings=fittings,
                                                 frame_height=frame_height,
-                                                saddle_height=saddle_height))
+                                                saddle_height=saddle_height,
+                                                bike_typ=bike_type))
 
 
 def error(request):

@@ -9,14 +9,14 @@ from django.contrib import admin
 from django.urls import path
 from bikefitting_app import views
 
-from bikefitting_app.views import index, measureStepLenght, selectBike, inputData, results, error
+from bikefitting_app.views import index, measure_step_length, select_bike, input_data, results, error
 
 urlpatterns = [
     path('admin', admin.site.urls),
     path('', index, name='index'),
-    path('measureStepLenght', measureStepLenght, name='measureStepLenght'),
-    path('selectBike', selectBike, name='selectBike'),
-    path('inputData', inputData, name='inputData'),
+    path('measureStepLenght', measure_step_length, name='measureStepLenght'),
+    path('selectBike', select_bike, name='selectBike'),
+    path('inputData', input_data, name='inputData'),
     path('results', results, name='results'),
     path('error', error, name='error'),
 ]

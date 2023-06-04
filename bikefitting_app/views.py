@@ -39,7 +39,7 @@ def index(request):
 
 
 @login_required()
-def selectBike(request):
+def select_bike(request):
     """
     Generating the "select Bike" page
     and creat the object that is needed.
@@ -58,7 +58,7 @@ def selectBike(request):
 
 
 @login_required()
-def measureStepLenght(request):
+def measure_step_length(request):
     """
     Generating the "Measure" page
     and give an instruction how to measure step length
@@ -69,7 +69,7 @@ def measureStepLenght(request):
 
 
 @login_required()
-def inputData(request):
+def input_data(request):
     """
     Generating the "Input" page
     And calls the creatFitting()-Methode on an object.
@@ -100,15 +100,12 @@ def results(request):
     Generating the "result" page
     and read the necessary data from the Database
     :param request:     Data from the html file
-    :return:            The results.html file ti render
+    :return:            The results.html file to render
     """
-    # TODO Cosmetic!!
-
     fittings = Fitting.objects.last()
     name = request.session.get('data')[0]
     height = request.session.get('data')[1]
     step_length = request.session.get('data')[2]
-    bike_type = "None"
 
     if current_bike is None:
         return render(request, 'error.html',
@@ -134,27 +131,27 @@ def results(request):
 def error(request):
     """
     Is always called, when an error appears.
-    :param request:
-    :return:
+    :param request: Date from the htm file
+    :return:        the error.html page to render
     """
     return render(request, 'error.html')
 
 
 def handle_404(request, exception):
     """
-
-    :param request:
-    :param exception:
-    :return:
+    if a 404 error appears, we route to the error page
+    :param request:     Date form the html page
+    :param exception:   Exceptions from the html page
+    :return:            The error404.html page to render
     """
     return render(request, 'error404.html')
 
 def handle_500(request):
     """
-
-    :param request:
-    :param exception:
-    :return:
+    if a 500 error appears, we route to the error page.
+    :param request:     Data from the html-file
+    :param exception:   Exceptions from the html page
+    :return:            The error.html page to render
     """
     return render(request, 'error.html',
                   show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))

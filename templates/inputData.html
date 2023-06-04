@@ -23,7 +23,11 @@
      <form method="POST" action="{% url 'inputData' %}" enctype="multipart/form-data">
          {% csrf_token %}
          {{ form.as_table }}
-         <button type="submit">Submit</button>
+         <tr>
+            <td>
+               <button type="submit">Submit</button>
+            </td>
+         </tr>
      </form>
     </table>
 {% endblock %}

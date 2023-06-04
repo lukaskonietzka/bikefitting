@@ -1,4 +1,12 @@
-{# Conten of the site "Start" #}
+<!--
+    TEMPLATE
+    This is the start page
+    When a user opens this app, he will join on this side
+    Backend methode:    results()
+    returns a html-file to render
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
 
 {% extends 'base.html' %}
 
@@ -13,19 +21,19 @@
     <p></p>
     <table>
 		<tr>
-			<th>1. Schrittlänge messen</th>
-			<th>2. Daten eingeben</th>
-			<th>3. Fahrradtyp wählen</th>
+			<th>1. Fahrradtyp wählen</th>
+			<th>2. Schrittlänge messen</th>
+			<th>3. Daten eingeben</th>
 		</tr>
         <tr>
-            <td> Wir geben eine Anleitung, wie Sie Ihre Schrittlänge ermitteln können</td>
-            <td> Sie geben die benötigten Daten ein, um ein Fitting zu erstellen. Hier wird auch die Schrittlänge benötigt</td>
-            <td> Sie wählen aus, für welche Fahrradtypen Sie ein Fitting erstellen möchten</td>
+            <td> Sie wählen aus, für welche Fahrradtypen Sie ein Fitting erstellen möchten </td>
+            <td> Wir geben eine Anleitung, wie Sie Ihre Schrittlänge ermitteln können </td>
+            <td> Sie geben die benötigten Daten ein, um ein Fitting zu erstellen. Hier wird auch die Schrittlänge benötigt </td>
         </tr>
 		<tr>
-			<td> <button> <a href = "/measureStepLenght" > Start Messung </a> </button> </td>
-            <td> <button> <a href = "/inputData" > Start Eingabe </a> </button> </td>
 			<td> <button> <a href = "/selectBike" > Start Fahrradwahl </a> </button> </td>
+            <td> <button> <a href = "/measureStepLenght" > Start Messen </a> </button> </td>
+			<td> <button> <a href = "/inputData" > Start Eingabe </a> </button> </td>
 		</tr>
 	</table>
 {% endblock %}

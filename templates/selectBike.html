@@ -1,3 +1,13 @@
+<!--
+    TEMPLATE
+    On this page the user is selecting the type
+    of the fitting
+    Backend methode:    select_bike()
+    returns a html-file to render
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
+
 {% extends 'base.html' %}
 
 {% block titel %} Bikefitting-selectBike {% endblock %}
@@ -33,8 +43,8 @@
         <form method="POST">
             {% csrf_token %}
             <tr>
-                <td><input type="checkbox", name="bike", value="rb"> Ich fahre Rennrad </td>
                 <td><input type="checkbox", name="bike", value="mb"> Ich fahre Mountainbike </td>
+                <td><input type="checkbox", name="bike", value="rb"> Ich fahre Rennrad </td>
                 <td><input type="checkbox", name="bike", value="tb"> Ich fahre Trekkingrad </td>
 
             </tr>

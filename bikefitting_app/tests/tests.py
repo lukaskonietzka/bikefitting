@@ -24,7 +24,7 @@ class Test_Roadbike:
         assert result == expect
 
     def test_create_roadbike_fitting(self):
-        result_frame_height, result_saddle_height = self.r_bike.create_roadbike_fitting("Cube", 180, 90)
+        result_frame_height, result_saddle_height, bike_type = self.r_bike.create_roadbike_fitting("Cube", 180, 90)
 
         expect_frame_height = 90
         assert result_frame_height == expect_frame_height
@@ -50,7 +50,7 @@ class Test_Mountainbike:
         assert result == expect
 
     def test_create_mountainbike_fitting(self):
-        result_frame_height, result_saddle_height = self.m_bike.create_mountainbike_fitting("Cube", 180, 90)
+        result_frame_height, result_saddle_height, bike_type = self.m_bike.create_mountainbike_fitting("Cube", 180, 90)
 
         expect_frame_height = 90
         assert result_frame_height == expect_frame_height
@@ -76,7 +76,7 @@ class Test_Trekkingbike:
         assert result == expect
 
     def test_create_trekkingbike_fitting(self):
-        result_frame_height, result_saddle_height = self.t_bike.create_trekkingbike_fitting("Cube", 180, 90)
+        result_frame_height, result_saddle_height, bike_type = self.t_bike.create_trekkingbike_fitting("Cube", 180, 90)
 
         expect_frame_height = 90
         assert result_frame_height == expect_frame_height

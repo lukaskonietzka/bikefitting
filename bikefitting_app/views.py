@@ -1,7 +1,8 @@
 """
     FRONTEND
-    Contains all page for the website, every method
-    returns a html-file to render
+    Contains all page for the website,
+    every method returns a html-file to render
+
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 """
@@ -44,6 +45,7 @@ def select_bike(request):
     Generating the "select Bike" page
     and creat the object that is needed.
     If more types are selected, we switch to the error-page
+    An login is required.
     :param request:     Data from the html file
     :return:            The selectBike.html file to render
     """
@@ -62,6 +64,7 @@ def measure_step_length(request):
     """
     Generating the "Measure" page
     and give an instruction how to measure step length
+    An login is required.
     :param request:     Data from the html file
     :return:            The measureStepLenght.html-file to render
     """
@@ -74,6 +77,7 @@ def input_data(request):
     Generating the "Input" page
     And calls the creatFitting()-Methode on an object.
     This method is writing the data from the input into the database.
+    An login is required.
     If you type in another value, we throw an Exception.
     :param request:     Data from the html file
     :return:            The inputData.html file to render
@@ -99,6 +103,7 @@ def results(request):
     """
     Generating the "result" page
     and read the necessary data from the Database
+    An login is required.
     :param request:     Data from the html file
     :return:            The results.html file to render
     """
@@ -146,11 +151,11 @@ def handle_404(request, exception):
     """
     return render(request, 'error404.html')
 
+
 def handle_500(request):
     """
     if a 500 error appears, we route to the error page.
     :param request:     Data from the html-file
-    :param exception:   Exceptions from the html page
     :return:            The error.html page to render
     """
     return render(request, 'error.html',

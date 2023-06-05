@@ -1,11 +1,13 @@
 """
     BACKEND
     Contains the Database for all Fittings
+    We store: name, height, step_length
+    All the other fields can be calculated, so we don´t store them
 
     Example:
         - To create a new fitting type:
             r_bike = Roadbike()
-            r_bike.creat_roadbike_fitting()
+            r_bike.creat_roadbike_fitting("name", 1, 1)
         - To get the created date in python use:
             print(r_bike) or use the database language from django
 
@@ -102,7 +104,7 @@ class Roadbike(Fitting):
         :param name:        user_name
         :param height:      user_height
         :param step_length: user_step_length
-        :return:            frame_height, saddle_height
+        :return:            frame_height, saddle_height, bike_type
         """
         self.r_name = name
         self.r_height = height
@@ -135,7 +137,7 @@ class Trekkingbike(Fitting):
         :param name:        user_name
         :param height:      user_height
         :param step_length: user_step_length
-        :return:            frame_height, saddle_height
+        :return:            frame_height, saddle_height, bike_type
         """
         self.t_name = name
         self.t_height = height
@@ -166,7 +168,7 @@ class Mountainbike(Fitting):
         :param name:        user_name
         :param height:      user_height
         :param step_length: user_step_length
-        :return:            frame_height, saddle_height
+        :return:            frame_height, saddle_height, bike_type
         """
         self.m_name = name
         self.m_height = height

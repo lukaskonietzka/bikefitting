@@ -1,5 +1,5 @@
 """
-    URLS
+    URL configuration for bikefitting_app.
     Contains all paths to different sites from the app bikfitting_app
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
@@ -7,9 +7,8 @@
 
 from django.contrib import admin
 from django.urls import path
-from bikefitting_app import views
-
 from bikefitting_app.views import index, measure_step_length, select_bike, input_data, results, error
+
 
 urlpatterns = [
     path('admin', admin.site.urls),

@@ -1,0 +1,21 @@
+<!--
+    TEMPLATE
+    returns a html-file to render
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
+
+{% extends 'accountsIndex.html' %}
+
+{% block titel %} Bikefitting-Login {% endblock %}
+
+{% block pageHeader %} Login {% endblock %}
+
+{% block content %}
+    <h1>System Login</h1>
+    <form method="POST">
+         {% csrf_token %}
+        {{form.as_p}}
+        <button>Login</button>
+    </form>
+{% endblock %}

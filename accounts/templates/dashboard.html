@@ -1,0 +1,16 @@
+<!--
+    TEMPLATE
+    returns a html-file to render
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
+
+{% extends 'accountsIndex.html' %}
+
+{% block titel %} Bikefitting-Dashboard {% endblock %}
+
+{% block pageHeader %} Dashboard {% endblock %}
+
+{% block content %}
+    <h1>Welcome, {{user.username}}</h1>
+{% endblock %}

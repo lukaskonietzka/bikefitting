@@ -1,0 +1,33 @@
+<!--
+    TEMPLATE
+    On this page the user is typing in all
+    necessary data
+    Backend methode:    input_data()
+    returns a html-file to render
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
+
+{% extends 'base.html' %}
+
+{% block titel %} Bikefitting-inputData {% endblock %}
+
+{% block pageHeader %} Daten eingeben {% endblock %}
+
+{% block content %}
+
+    <h3 style="text-align: center" > Hier kannst du deine ermittelten Daten eingeben </h3>
+    <div style="text-align: center"><b>Bitte gebe die Maße in ganzen Zentimetern an (cm)</b></div>
+
+    <table>
+     <form method="POST" action="{% url 'inputData' %}" enctype="multipart/form-data">
+         {% csrf_token %}
+         {{ form.as_table }}
+         <tr>
+            <td>
+               <button type="submit">Submit</button>
+            </td>
+         </tr>
+     </form>
+    </table>
+{% endblock %}

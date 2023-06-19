@@ -1,0 +1,59 @@
+<!--
+    TEMPLATE
+    On this page the user is selecting the type
+    of the fitting
+    Backend methode:    select_bike()
+    returns a html-file to render
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
+
+{% extends 'base.html' %}
+
+{% block titel %} Bikefitting-selectBike {% endblock %}
+
+{% block pageHeader %} Fahrradtyp wählen {% endblock %}
+
+{% block content %}
+
+    <h3 style="text-align: center"> Wähle bitte den Typ deines Fahrrads aus </h3>
+    <div style="text-align: center"></div>
+
+    <table>
+
+		<tr>
+			<th>Mountainbike</th>
+			<th>Rennrad</th>
+			<th>Trekkingbike/SUV</th>
+		</tr>
+
+        <tr>
+            <td> <p> Dein Zuhause ist jenseits der Zivilisation. Du ernährst dich von Staub, Dreck und Höhenluft? </p> </td>
+            <td> <p> Dein Zuhause ist die Straße. Du frisst Kilometer und gönnst dir zur Belohnung neue Titanschrauben? </p> </td>
+            <td> <p> Dein Zuhause ist überall und nirgendwo. Du befestigst dein Smartphone mitsamt dem Flapcase hochkant in der Lenkerhalterung? </p> </td>
+        </t r>
+
+        <tr>
+            <td> <img src="/bikefitting_app/img/mountainbike.jpg" width="200"> </td>
+            <td> <img src="/bikefitting_app/img/rennrad.jpg" width="200"> </td>
+            <td> <img src="/bikefitting_app/img/trekkingbike.jpg" width="200"> </td>
+        </tr>
+
+
+        <form method="POST">
+            {% csrf_token %}
+            <tr>
+                <td><input type="checkbox", name="bike", value="mb"> Ich fahre Mountainbike </td>
+                <td><input type="checkbox", name="bike", value="rb"> Ich fahre Rennrad </td>
+                <td><input type="checkbox", name="bike", value="tb"> Ich fahre Trekkingrad </td>
+
+            </tr>
+            <tr>
+                <td> </td>
+                <td><button type="submit">Abschicken</button></td>
+                <td></td>
+            </tr>
+        </form>
+	</table>
+
+{% endblock %}

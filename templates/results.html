@@ -1,0 +1,57 @@
+<!--
+    TEMPLATE
+    On this page we show the results depending on the given data
+    Backend methode:    results()
+    returns a html-file to render
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
+
+{% extends 'base.html' %}
+
+{% block titel %} Bikefitting-results {% endblock %}
+
+{% block pageHeader %} Ergebnis {% endblock %}
+
+{% block content %}
+
+    <h3 style="text-align: center"> Laut unserem Algorithmus sollte dein Fahrrad folgende Maße aufweisen: </h3>
+
+    <table>
+
+        <tr>
+			<th style="text-align: left"> Fahrradmaß </th>
+			<th style="text-align: left"> Unsere errechneten Ergebnisse </th>
+		</tr>
+
+        <tr>
+			<td style="text-align: left" > Name: </td>
+			<td style="text-align: left"> {{ fittings.Name }} </td>
+		</tr>
+
+        <tr>
+            <td style="text-align: left" > Fahrradtyp: </td>
+            <td style="text-align: left" > {{bike_typ}} </td>
+        </tr>
+
+        <tr>
+			<td style="text-align: left" > Körpergröße: </td>
+			<td style="text-align: left"> {{ fittings.Height }}cm </td>
+		</tr>
+
+        <tr>
+			<td style="text-align: left" > Schrittlänge: </td>
+			<td style="text-align: left"> {{ fittings.StepLength }}cm </td>
+		</tr>
+
+		<tr>
+			<td style="text-align: left" > Benötigte Rahmengröße: </td>
+			<td style="text-align: left"> {{frame_height}}cm </td>
+		</tr>
+
+         <tr>
+            <td style="text-align: left" > Benötigte Sattelhöhe: </td>
+            <td style="text-align: left" > {{saddle_height}}cm </td>
+        </tr>
+	</table>
+{% endblock %}

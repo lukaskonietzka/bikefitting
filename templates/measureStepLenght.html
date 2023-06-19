@@ -1,0 +1,38 @@
+<!--
+    TEMPLATE
+    This side is only an info side
+    Backend methode:    measure_step_length()
+    returns a html-file to render
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
+
+{% extends 'base.html' %}
+
+{% block titel %} Bikefitting-measurement {% endblock %}
+
+{% block pageHeader %} Schrittlänge ermitteln {% endblock %}
+
+{% block content %}
+    <table>
+		<tr>
+			<th>So ermittelst du deine Schrittlänge</th>
+		</tr>
+		<tr>
+			<td>
+                <p>
+                    Um deine Schrittlänge zu messen, nimm dir ein Buch oder einen ähnlichen Gegenstand mit einer geraden Kante zur Hand. <br>
+                    Stelle dich ohne Schuhe mit den Beinen etwa schulterbreit mit dem Rücken an eine Wand. <br>
+                    Achte darauf, dass du den Gegenstand zwischen deinen Beinen waagrecht nach oben ziehst, bis es wirklich unangenehm wird. <br>
+                    Pass dabei auf, dass deine Beine am Boden bleiben. Wenn beide Füße den Boden nicht mehr berühren, ziehst du zu fest. <br>
+                    Bitte nun eine zweite Person, den Abstand vom Boden bis zum Buchrücken zu messen. Notiere dir dieses Maß für den nächsten Schritt. <br>
+                </p>
+            </td>
+		</tr>
+		<tr>
+			<td><div class="imageCenter"> <img src="/bikefitting_app/img/schrittlaenge.jpeg"> </div></td>
+		</tr>
+	</table>
+
+
+{% endblock %}

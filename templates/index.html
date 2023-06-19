@@ -1,10 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Bike_Fitting</title>
-</head>
-<body>
+<!--
+    TEMPLATE
+    This is the start page
+    When a user opens this app, he will join on this side
+    Backend methode:    results()
+    returns a html-file to render
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
 
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block titel %} Bikefitting-Start {% endblock %}
+
+{% block pageHeader %} Start {% endblock %}
+
+{% block content %}
+    <p></p>
+    <h3 style="text-align: center"> In drei Schritten zum eigenen Bikefitting </h3>
+    <div style="text-align: center"> Wenn Sie Ihre Schrittlänge schon kennen, können Sie Schritt 2 überspringen.</div>
+    <p></p>
+    <table>
+		<tr>
+			<th>1. Fahrradtyp wählen</th>
+			<th>2. Schrittlänge messen</th>
+			<th>3. Daten eingeben</th>
+		</tr>
+        <tr>
+            <td> Sie wählen aus, für welche Fahrradtypen Sie ein Fitting erstellen möchten </td>
+            <td> Wir geben eine Anleitung, wie Sie Ihre Schrittlänge ermitteln können </td>
+            <td> Sie geben die benötigten Daten ein, um ein Fitting zu erstellen. Hier wird auch die Schrittlänge benötigt </td>
+        </tr>
+		<tr>
+			<td> <button> <a href = "/selectBike" > Start Fahrradwahl </a> </button> </td>
+            <td> <button> <a href = "/measureStepLenght" > Start Messen </a> </button> </td>
+			<td> <button> <a href = "/inputData" > Start Eingabe </a> </button> </td>
+		</tr>
+	</table>
+{% endblock %}

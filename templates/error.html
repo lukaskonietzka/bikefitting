@@ -1,0 +1,22 @@
+<!--
+    TEMPLATE
+    This page is shown when any error appears
+    Backend methode:    results()
+    returns a html-file to render
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
+
+{% extends 'base.html' %}
+
+{% block titel %} Bikefitting-Error{% endblock %}
+
+{% block pageHeader %} Error {% endblock %}
+
+{% block content %}
+    <h3> Ein Fehler ist aufgetreten, </h3>
+
+    <div><b>Beschreibung: </b></div>
+    <div> {{ message }} </div>
+    <div> Bitte benutzen Sie die Navigation, um zurück zur gewünschten Seite zu kommen. </div>
+{% endblock %}

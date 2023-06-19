@@ -25,6 +25,7 @@ SECRET_KEY = 'django-insecure-opm_nd*lnp$duc(wm*98x4l%(z(0&t++g5hr#2v36k-_02m9ob
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+#ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 ALLOWED_HOSTS = []
 
 
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'bikefitting_app',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +57,7 @@ ROOT_URLCONF = 'bikefitting.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'src/../templates']
+        'DIRS': [BASE_DIR / 'bikefitting_app/../templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -122,3 +125,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = '/accounts/dashboard/'

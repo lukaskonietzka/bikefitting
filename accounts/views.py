@@ -12,11 +12,11 @@ from django.contrib.auth.decorators import login_required
 
 
 def indexView(request):
-    return render(request,'accountsIndex.html')
+    return render(request, 'accountsIndex.html')
 
 @login_required()
 def dashboardView(request):
-    return render(request,'dashboard.html')
+    return render(request, 'dashboard.html')
 
 def registerView(request):
     if request.method == "POST":
@@ -26,4 +26,4 @@ def registerView(request):
             return redirect('login_url')
     else:
         form = UserCreationForm()
-    return render(request,'registration/register.html',{'form':form})
+    return render(request, 'registration/register.html', {'form': form})

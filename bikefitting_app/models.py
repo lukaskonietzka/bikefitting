@@ -94,8 +94,8 @@ class Roadbike(Fitting):
         Create a Roadbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
-    _STEP_LENGTH_FACTOR = 1
-    _SADDLE_HEIGHT_FACTOR = 1
+    _STEP_LENGTH_FACTOR = 0.667
+    _SADDLE_HEIGHT_FACTOR = 0.88
 
     def create_roadbike_fitting(self, name, height, step_length):
         """
@@ -127,8 +127,8 @@ class Trekkingbike(Fitting):
         Create a Trekkingbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
-    _STEP_LENGTH_FACTOR = 2
-    _SADDLE_HEIGHT_FACTOR = 2
+    _STEP_LENGTH_FACTOR = 0.663
+    _SADDLE_HEIGHT_FACTOR = 0.95
 
     def create_trekkingbike_fitting(self, name, height, step_length):
         """
@@ -159,8 +159,8 @@ class Mountainbike(Fitting):
         Create a Mountainbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
-    _SADDLE_HEIGHT_FACTOR = 3
-    _STEP_LENGTH_FACTOR = 3
+    _SADDLE_HEIGHT_FACTOR = 0.89
+    _STEP_LENGTH_FACTOR = 0.254
 
     def create_mountainbike_fitting(self, name, height, step_length):
         """

@@ -10,7 +10,7 @@ from bikefitting_app.models import Roadbike, Mountainbike, Trekkingbike
 class Test_Roadbike:
     r_bike = Roadbike()
     r_bike.step_length = 90
-    r_bike._STEP_LENGTH_FACTOR = 1
+    r_bike._FRAME_HEIGHT_FACTOR = 1
     r_bike._SADDLE_HEIGHT_FACTOR = 1
 
     def test_calculate_frame_height(self):
@@ -36,7 +36,7 @@ class Test_Roadbike:
 class Test_Mountainbike:
     m_bike = Mountainbike()
     m_bike.step_length = 90
-    m_bike._STEP_LENGTH_FACTOR = 1
+    m_bike._FRAME_HEIGHT_FACTOR = 1
     m_bike._SADDLE_HEIGHT_FACTOR = 1
 
     def test_calculate_frame_height(self):
@@ -62,7 +62,7 @@ class Test_Mountainbike:
 class Test_Trekkingbike:
     t_bike = Trekkingbike("Cube", 180, 90)
     t_bike.step_length = 90
-    t_bike._STEP_LENGTH_FACTOR = 1
+    t_bike._FRAME_HEIGHT_FACTOR = 1
     t_bike._SADDLE_HEIGHT_FACTOR = 1
 
     def test_calculate_frame_height(self):

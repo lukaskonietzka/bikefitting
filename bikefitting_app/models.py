@@ -94,7 +94,7 @@ class Roadbike(Fitting):
         Create a Roadbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
-    _STEP_LENGTH_FACTOR = 0.667
+    _FRAME_HEIGHT_FACTOR = 0.667
     _SADDLE_HEIGHT_FACTOR = 0.88
 
     def create_roadbike_fitting(self, name, height, step_length):
@@ -109,7 +109,7 @@ class Roadbike(Fitting):
         self.r_name = name
         self.r_height = height
         self.r_step_length = step_length
-        self.r_frame_height = self.calculate_frame_height(step_length, self._STEP_LENGTH_FACTOR)
+        self.r_frame_height = self.calculate_frame_height(step_length, self._FRAME_HEIGHT_FACTOR)
         self.r_saddle_height = self.calculate_saddle_height(step_length, self._SADDLE_HEIGHT_FACTOR)
         self.bike_type = "Roadbike"
 
@@ -127,7 +127,7 @@ class Trekkingbike(Fitting):
         Create a Trekkingbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
-    _STEP_LENGTH_FACTOR = 0.663
+    _FRAME_HEIGHT_FACTOR = 0.663
     _SADDLE_HEIGHT_FACTOR = 0.95
 
     def create_trekkingbike_fitting(self, name, height, step_length):
@@ -142,7 +142,7 @@ class Trekkingbike(Fitting):
         self.t_name = name
         self.t_height = height
         self.t_step_length = step_length
-        self.t_frame_height = self.calculate_frame_height(step_length, self._STEP_LENGTH_FACTOR)
+        self.t_frame_height = self.calculate_frame_height(step_length, self._FRAME_HEIGHT_FACTOR)
         self.t_saddle_height = self.calculate_saddle_height(step_length, self._SADDLE_HEIGHT_FACTOR)
         self.bike_type = "Trekkingbike"
         data = (self.t_name,
@@ -159,8 +159,8 @@ class Mountainbike(Fitting):
         Create a Mountainbike-Fitting depending on the following fields
         Child-class from:   Fitting
     """
+    _FRAME_HEIGHT_FACTOR = 0.254
     _SADDLE_HEIGHT_FACTOR = 0.89
-    _STEP_LENGTH_FACTOR = 0.254
 
     def create_mountainbike_fitting(self, name, height, step_length):
         """
@@ -173,7 +173,7 @@ class Mountainbike(Fitting):
         self.m_name = name
         self.m_height = height
         self.m_step_length = step_length
-        self.m_frame_height = self.calculate_frame_height(step_length, self._STEP_LENGTH_FACTOR)
+        self.m_frame_height = self.calculate_frame_height(step_length, self._FRAME_HEIGHT_FACTOR)
         self.m_saddle_height = self.calculate_saddle_height(step_length, self._SADDLE_HEIGHT_FACTOR)
         self.bike_type = "Mountainbike"
         data = (self.m_name,

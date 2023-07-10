@@ -19,7 +19,7 @@ To use the App in the developer mode, follow the Steps below:
 5. Now you can use the App
 6. To manage the database type _/admin_ into the url-path.
 
->Important: If you use the App in a running system, set the debug mode to _False_.
+>__Important__: If you use the App in a running system, set the debug mode to _False_.
 
 ## Collaborators
 - __Sebastian Niehage__

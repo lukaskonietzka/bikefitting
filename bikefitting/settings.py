@@ -25,13 +25,17 @@ SECRET_KEY = 'django-insecure-opm_nd*lnp$duc(wm*98x4l%(z(0&t++g5hr#2v36k-_02m9ob
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# For Debug=False
 ALLOWED_HOSTS = ['localhost', '127.0.0.1']
-#ALLOWED_HOSTS = []
+
+# For Debug=True
+# ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -120,6 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = '/bikefitting_app/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

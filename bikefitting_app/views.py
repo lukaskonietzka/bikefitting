@@ -165,7 +165,7 @@ def handle_500(request):
 def show_message(custom_message):
     """
     Returns a dict with the given parameter
-    to show an custom message on each error-Message
+    to show a custom message on each error-Message
     :param custom_message:
     :return:
     """

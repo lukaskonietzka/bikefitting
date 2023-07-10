@@ -73,34 +73,3 @@ footer p {
     margin: auto;
 
 }
-
-.left-menu-btn {
-    float: left;
-    list-style-type: none;
-}
-
-.right-menu-btn {
-    float: right;
-    list-style-type: none;
-}
-
-.imageCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.buttonCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.active {
-    background-color: white;
-}
-
-.sticky {
-        position: sticky;
-        top: 0;
-}

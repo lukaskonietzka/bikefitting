@@ -1,6 +1,7 @@
 """
     URL configuration for bikefitting_app.
     Contains all paths to different sites from the app bikfitting_app
+
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 """

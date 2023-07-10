@@ -55,7 +55,8 @@ def select_bike(request):
         bikes = request.POST.getlist('bike')
         if len(bikes) != 1:
             current_bike = None
-            return render(request, 'error.html', show_message("Bitte wählen Sie zuerst ein Fahrrad aus"))
+            return render(request, 'error.html',
+                          show_message("Bitte wählen Sie zuerst ein Fahrrad aus und drücken sie dann auf Abschicken."))
         current_bike = bikes[0]
     return render(request, 'selectBike.html')
 
@@ -78,7 +79,7 @@ def input_data(request):
     Generating the "Input" page
     And calls the creatFitting()-Methode on an object.
     This method is writing the data from the input into the database.
-    An login is required.
+    A login is required.
     If you type in another value, we throw an Exception.
     :param request:     Data from the html file
     :return:            The inputData.html file to render
@@ -93,7 +94,7 @@ def input_data(request):
         request.session['data'] = input_from_user
         if name is None or step_length is None or step_length is None:
             return render(request, 'error.html',
-                          show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
+                          show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre Eingabe."))
         if form.is_valid():
             form.save()
     return render(request, 'inputData.html', {'form': form})
@@ -108,6 +109,10 @@ def results(request):
     :param request:     Data from the html file
     :return:            The results.html file to render
     """
+    if request.session.get('data') is None:
+        return render(request, 'error.html',
+                      show_message("Befor sie ein Ergebnis erhalten können, müssen sie ein Fitting konfigurieren."))
+
     fittings = Fitting.objects.last()
     name = request.session.get('data')[0]
     height = request.session.get('data')[1]
@@ -115,7 +120,7 @@ def results(request):
 
     if current_bike is None:
         return render(request, 'error.html',
-                      show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
+                      show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre Eingabe."))
 
     if current_bike == 'rb':
         rb = Roadbike()
@@ -160,7 +165,7 @@ def handle_500(request):
     :return:            The error.html page to render
     """
     return render(request, 'error.html',
-                  show_message("An einer Stelle fehlen noch Daten, bitte überprüfen Sie Ihre eingabe."))
+                  show_message("Diese Seite sollten sie nicht sehen :(."))
 
 
 def show_message(custom_message):

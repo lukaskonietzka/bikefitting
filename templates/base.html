@@ -1,10 +1,12 @@
 <!--
     TEMPLATE
-    This side is the parent side
+    This side is the parent side.
+
     Any template is a child of this template
-    So we have the same desing on each side
+    So we have the same desing on each side.
     Backend methode:    results()
     returns a html-file to render
+
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 -->
@@ -95,6 +97,7 @@
 
             }
 
+
             .left-menu-btn {
                 float: left;
                 list-style-type: none;
@@ -105,31 +108,16 @@
                 list-style-type: none;
             }
 
-            .imageCenter {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .buttonCenter {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .active {
-                background-color: white;
-            }
-
             .sticky {
                     position: sticky;
                     top: 0;
+                    bottom: 0;
             }
         </style>
     </head>
 
     <body>
-        <nav>
+        <nav class="sticky">
             <ol>
                 <a href="/" class="left-menu-btn"> Start </a>
                 <a href="/selectBike"class="left-menu-btn" class="left-btn"> Fahrrad </a>
@@ -151,7 +139,7 @@
         {% endblock %}
         <hr>
         </main>
-        <footer>
+        <footer class="sticky">
 		    <p>This side was made by Sebastian and Lukas!</p>
 	    </footer>
     </body>

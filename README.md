@@ -16,8 +16,7 @@ To use the App in the developer mode, follow the Steps below:
 5. Create a superuser with: _python manage.py createsuperuser_ to get full access to all pages
 3. Type _python manage.py runserver_ to start the developer server
 4. Click on the localhost link.
-5. Now you can use the App
-6. To manage the database type _/admin_ into the url-path.
+5. To manage the database type _/admin_ into the url-path.
 
 >__Important__: If you use the App in a running system, set the debug mode to _False_.
 

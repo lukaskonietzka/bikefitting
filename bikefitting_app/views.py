@@ -1,5 +1,6 @@
 """
-    FRONTEND
+    VIEW-METHODS
+
     Contains all page for the website,
     every method returns a html-file to render
 

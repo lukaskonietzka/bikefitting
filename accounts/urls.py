@@ -1,6 +1,9 @@
 """
+    URLS ACCOUNT-APP
+
     URL configuration for accounts app.
     Contains all paths to different sites from the app accounts
+
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 """

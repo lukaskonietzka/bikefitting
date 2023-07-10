@@ -1,3 +1,10 @@
+"""
+    ACCOUNT-APP
+
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+"""
+
 from django.apps import AppConfig
 
 

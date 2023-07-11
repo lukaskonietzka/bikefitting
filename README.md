@@ -11,8 +11,8 @@ To use the App in the developer mode, follow the Steps below:
 
 1. Clone the repository 
 2. Change in the Projekt folder
-3. Install all required packages via _requirements.txt_ or manual
-4. synchronize the database with _python manage.py --run-syncdb_
+3. Install all required packages using _pip install -r requirements.txt_ or manual
+4. synchronize the database with _python manage.py migrate --run-syncdb_
 5. Create a superuser with: _python manage.py createsuperuser_ to get full access to all pages
 3. Type _python manage.py runserver_ to start the developer server
 4. Click on the localhost link.

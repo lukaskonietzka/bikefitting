@@ -1,8 +1,6 @@
 <!--
     TEMPLATE
     returns a html-file to render
-    Author:     Niehage, Sebastian
-                Konietzka, Lukas
 -->
 
 {% extends 'accountsIndex.html' %}
@@ -12,5 +10,6 @@
 {% block pageHeader %} Dashboard {% endblock %}
 
 {% block content %}
-    <h1>Welcome, {{user.username}}</h1>
+    <h1>Willkommen, {{user.username}}</h1>
+    <h3> Bitte nutzen Sie die Navigation, um zur gewünschten Seite zu gelangen.</h3>
 {% endblock %}

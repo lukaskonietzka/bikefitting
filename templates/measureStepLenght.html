@@ -3,11 +3,14 @@
     This side is only an info side
     Backend methode:    measure_step_length()
     returns a html-file to render
+
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 -->
 
 {% extends 'base.html' %}
+
+{% load static %}
 
 {% block titel %} Bikefitting-measurement {% endblock %}
 
@@ -30,7 +33,7 @@
             </td>
 		</tr>
 		<tr>
-			<td><div class="imageCenter"> <img src="/bikefitting_app/img/schrittlaenge.jpeg"> </div></td>
+			<td><div class="imageCenter"> <img src="{% static 'bikefitting_app/img/schrittlaenge.jpeg' %}"> </div></td>
 		</tr>
 	</table>
 

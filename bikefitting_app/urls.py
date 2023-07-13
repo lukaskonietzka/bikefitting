@@ -1,17 +1,20 @@
 """
+    URL-BIKE_FITTING-APP
+
     URL configuration for bikefitting_app.
     Contains all paths to different sites from the app bikfitting_app
+
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 """
 
-from django.contrib import admin
 from django.urls import path
+from django.contrib import admin
 from bikefitting_app.views import index, measure_step_length, select_bike, input_data, results, error
 
 
 urlpatterns = [
-    path('admin', admin.site.urls),
+    #path('admin', admin.site.urls),
     path('', index, name='index'),
     path('measureStepLenght', measure_step_length, name='measureStepLenght'),
     path('selectBike', select_bike, name='selectBike'),

@@ -1,6 +1,9 @@
 """
     UNITTESTS
-    Tests for the database
+
+    Tests for the module models.py
+    in the bikefitting-app
+
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 """
@@ -83,8 +86,3 @@ class Test_Trekkingbike:
 
         expect_saddle_height = 90
         assert result_saddle_height == expect_saddle_height
-
-
-
-
-

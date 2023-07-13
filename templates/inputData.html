@@ -4,6 +4,7 @@
     necessary data
     Backend methode:    input_data()
     returns a html-file to render
+
     Author:     Niehage, Sebastian
                 Konietzka, Lukas
 -->
@@ -24,9 +25,12 @@
          {% csrf_token %}
          {{ form.as_table }}
          <tr>
-            <td>
+             <td>
+                <br>
+             </td>
+             <td>
                <button type="submit">Submit</button>
-            </td>
+             </td>
          </tr>
      </form>
     </table>

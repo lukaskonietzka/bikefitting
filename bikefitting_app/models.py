@@ -1,5 +1,6 @@
 """
     BACKEND
+
     Contains the Database for all Fittings
     We store: name, height, step_length
     All the other fields can be calculated, so we don´t store them
@@ -78,15 +79,15 @@ class Fitting(models.Model):
         step_length = step_length * factor
         return self.round_to_integer(step_length)
 
-    def __str__(self):
-        """
-        Method from objekt, is called when an object
-        of Fitting should be printed via print()
-        :return: fields of Fitting that should be printed
-        """
-        return f"   name: {self.name}\n\
-                    height: {self.height} \n\
-                    step length: {self.step_length}\n\""
+    # def __str__(self):
+    #     """
+    #     Method from objekt, is called when an object
+    #     of Fitting should be printed via print()
+    #     :return: fields of Fitting that should be printed
+    #     """
+    #     return f"   name: {self.name}\n\
+    #                 height: {self.height} \n\
+    #                 step length: {self.step_length}\n\""
 
 
 class Roadbike(Fitting):

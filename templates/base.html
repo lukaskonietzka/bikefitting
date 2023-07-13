@@ -24,12 +24,10 @@
                 float: left;
                 list-style-type: none;
             }
-
             .right-menu-btn {
                 float: right;
                 list-style-type: none;
             }
-
             .sticky {
                     position: sticky;
                     top: 0;
@@ -46,6 +44,7 @@
                 <a href="/measureStepLenght" class="left-menu-btn"> Messen </a>
                 <a href="/inputData" class="left-menu-btn"> Daten Eingeben </a>
                 <a href="/results" class="left-menu-btn"> Ergebnis </a>
+                <a class="right-menu-btn"> {% include 'search.html' %} </a>
                 {#<a href="/admin" class="left-menu-btn">Admin</a>#}
                 <a href="/accounts/login/"  class="right-menu-btn">Login</a>
                 <a href="/accounts/register/"  class="right-menu-btn"> Registrieren </a>

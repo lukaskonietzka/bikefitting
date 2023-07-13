@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+    <form method="GET" action="{% url 'search_results' %}">
+        <input type="text" name="query" placeholder="Suchen...">
+        <button type="submit">Suchen</button>
+    </form>
+</body>
+</html>

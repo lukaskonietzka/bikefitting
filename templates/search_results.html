@@ -1,0 +1,28 @@
+<!--
+    TEMPLATE
+    This page is shown when searching
+    Backend methode:    search_results()
+    returns a html-file to render
+
+    Author:     Niehage, Sebastian
+                Konietzka, Lukas
+-->
+
+{% extends 'base.html' %}
+
+{% block titel %} Bikefitting-Suche{% endblock %}
+
+{% block pageHeader %} Suchergebnisse {% endblock %}
+
+{% block content %}
+    <h3> Wir haben folgende Fittings gefunden:</h3>
+    {% for result in results %}
+        <li>
+            <a><b>Name:</b> {{ result.Name }}, </a>
+            <a><b>Körpergröße:</b> {{ result.Height }}, </a>
+            <a><b>Schrittlänge:</b> {{ result.StepLength }}</a>
+      </li>
+    {% empty %}
+      <p>Keine Ergebnisse gefunden.</p>
+    {% endfor %}
+{% endblock %}/

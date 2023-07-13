@@ -160,12 +160,24 @@ def handle_404(request, exception):
 
 def handle_500(request):
     """
-    if a 500 error appears, we route to the error page.
+    If a 500 error appears, we route to the error page.
     :param request:     Data from the html-file
     :return:            The error.html page to render
     """
     return render(request, 'error.html',
                   show_message("Diese Seite sollten sie nicht sehen :(."))
+
+
+def search_results(request):
+    """
+    Returns all objects that we found in
+    the database
+    :param request:     Data from the html-file
+    :return:            The search_result.html page tu render all results
+    """
+    query = request.GET.get('query')
+    results = Fitting.objects.filter(Name__icontains=query)
+    return render(request, 'search_results.html', {'results': results})
 
 
 def show_message(custom_message):
